@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>コピペ俳句</title>
+  <link rel="stylesheet" href="./dist/styles.css" />
+</head>
+<body class="text-sumi min-h-screen font-mincho">
+  <svg id="shishi-odoshi" class="shishi-odoshi is-idle" viewBox="0 0 320 260" role="img" aria-label="水を受けて傾く鹿威し">
+    <defs>
+      <linearGradient id="bamboo-body" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#9eb36c" />
+        <stop offset=".48" stop-color="#728d4d" />
+        <stop offset="1" stop-color="#49643a" />
+      </linearGradient>
+      <linearGradient id="bamboo-cut" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#d7ca8d" />
+        <stop offset="1" stop-color="#8d7b43" />
+      </linearGradient>
+      <linearGradient id="stone" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8b8980" />
+        <stop offset="1" stop-color="#55564f" />
+      </linearGradient>
+      <radialGradient id="basin-stone" cx=".42" cy=".28" r=".78">
+        <stop offset="0" stop-color="#aaa89d" />
+        <stop offset=".55" stop-color="#77776f" />
+        <stop offset="1" stop-color="#484a45" />
+      </radialGradient>
+      <linearGradient id="basin-water" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#a8ced2" />
+        <stop offset=".55" stop-color="#6595a1" />
+        <stop offset="1" stop-color="#426e7b" />
+      </linearGradient>
+    </defs>
+
+    <!-- 奥の竹垣と笹。主役より彩度を落として庭の奥行きを作る。 -->
+    <g class="shishi-backdrop">
+      <path d="M257 211 V105 M276 214 V91 M295 210 V113 M257 124 H296 M257 166 H296" />
+      <path d="M275 112 C256 104 253 88 255 72 C271 81 280 93 275 112 Z" />
+      <path d="M281 126 C296 111 309 112 317 118 C307 132 296 137 281 126 Z" />
+      <path d="M267 146 C249 139 241 125 241 110 C257 116 269 129 267 146 Z" />
+    </g>
+
+    <!-- 左に排水先の水鉢、右に戻り音を鳴らす打ち石。 -->
+    <g class="shishi-garden">
+      <path class="shishi-earth" d="M8 226 C42 213 75 221 103 216 C145 207 177 224 211 216 C245 208 281 217 312 229 L312 252 L8 252 Z" />
+      <path class="shishi-strike-stone" d="M212 217 C215 192 233 178 253 184 C270 189 280 202 281 219 Z" />
+      <path class="shishi-stone-mark" d="M226 205 C237 195 253 192 268 203" />
+      <path class="shishi-basin" d="M7 217 C11 199 22 183 40 176 C56 169 79 171 98 182 C112 190 120 205 117 220 C93 232 30 233 7 217 Z" />
+      <path class="shishi-basin-hollow" d="M22 204 C28 188 45 181 64 182 C85 183 103 192 107 205 C94 218 39 220 22 204 Z" />
+      <path class="shishi-basin-water" d="M30 202 C39 190 52 187 67 188 C84 188 98 194 101 203 C88 212 45 214 30 202 Z" />
+      <path class="shishi-basin-shine" d="M42 198 C53 193 70 193 84 198" />
+      <path class="shishi-basin-crack" d="M19 211 L31 205 L27 194 M103 211 L95 204 L101 194" />
+      <path class="shishi-basin-moss" d="M13 202 Q22 193 31 196 M89 181 Q101 183 108 191" />
+      <path class="shishi-grass" d="M115 220 Q113 202 104 192 M117 220 Q121 199 131 187 M121 220 Q132 205 145 201" />
+    </g>
+
+    <!-- 鹿威しを支える二股の丸竹。 -->
+    <g class="shishi-stand">
+      <path class="shishi-leg" d="M135 221 L151 136" />
+      <path class="shishi-leg" d="M177 221 L155 136" />
+      <path class="shishi-crossbar" d="M135 154 Q155 145 176 154" />
+      <circle class="shishi-pivot-outer" cx="155" cy="132" r="12" />
+      <circle class="shishi-pivot-inner" cx="155" cy="132" r="5" />
+    </g>
+
+    <!--
+      主竹は左が開いた受け口、右が閉じた打撃側。
+      空のとき左上45度。左側へ水が溜まると反時計回りに水平を越える。
+    -->
+    <g class="shishi-tube">
+      <path class="shishi-bamboo-body" d="M92 110 H250 Q263 132 250 149 H42 C47 139 57 126 70 117 C79 111 87 108 92 110 Z" />
+      <path class="shishi-node" d="M112 116 V148 M169 116 V148 M226 116 V148" />
+      <!-- 竹本体の輪郭へつながる斜め切り。別付けの楕円にはしない。 -->
+      <path class="shishi-bamboo-cut" d="M92 110 C95 115 84 128 70 138 C57 147 45 152 42 149 C39 145 50 132 63 122 C77 112 89 106 92 110 Z" />
+      <path class="shishi-bamboo-hole" d="M87 114 C89 117 80 126 68 135 C57 143 48 147 46 144 C44 141 53 132 65 123 C76 115 85 111 87 114 Z" />
+      <path class="shishi-catch-ripple shishi-catch-ripple-a" d="M52 141 Q64 142 78 131" />
+      <path class="shishi-catch-ripple shishi-catch-ripple-b" d="M58 137 Q66 138 74 132" />
+      <path class="shishi-tube-highlight" d="M94 121 H238" />
+    </g>
+
+    <!-- 太い根元を上、細い吐出口を下にした右下がりの給水筒。 -->
+    <g class="shishi-spout">
+      <path class="shishi-spout-body" d="M8 18 L74 29 L87 48 L7 35 Z" />
+      <path class="shishi-spout-node" d="M34 22 L31 39 M65 26 L60 44" />
+      <path class="shishi-spout-rim" d="M74 29 C81 29 88 39 87 48 C81 51 72 38 74 29 Z" />
+      <path class="shishi-spout-hole" d="M77 32 C82 32 86 39 84 45 C81 46 76 38 77 32 Z" />
+    </g>
+    <g class="shishi-feed-water">
+      <path id="shishi-water-thread" class="shishi-water-thread" d="M85 48 L85 70" />
+      <path id="shishi-water-glint" class="shishi-water-glint" d="M85 48 L85 70" />
+    </g>
+
+    <!-- 水平を越えた左の受け口から水鉢へ排水する。 -->
+    <g class="shishi-pour">
+      <path class="shishi-pour-main" d="M66 153 C53 168 50 185 60 203" />
+      <path class="shishi-splash" d="M42 202 Q55 190 67 202 M55 205 Q70 191 84 203" />
+      <circle cx="36" cy="200" r="3" />
+      <circle cx="87" cy="197" r="2.4" />
+    </g>
+
+    <!-- 空になって戻った右端が石を打つ瞬間の「コン」という余韻。 -->
+    <g class="shishi-knock">
+      <path class="shishi-knock-line shishi-knock-line-a" d="M270 178 Q285 168 296 181" />
+      <path class="shishi-knock-line shishi-knock-line-b" d="M277 166 Q296 153 309 171" />
+    </g>
+  </svg>
+
+  <!--
+    名句斬りの刀。外部画像を使わず、鹿威しと同じく自作SVGで
+    選択画面の対になる景物と、正解時の抜刀演出を兼ねる。
+  -->
+  <svg id="katana-illustration" class="katana-illustration" viewBox="0 0 360 280" role="img" aria-label="鞘から抜かれた日本刀">
+    <defs>
+      <linearGradient id="katana-blade" x1="0" y1="1" x2="1" y2="0">
+        <stop offset="0" stop-color="#a9aaa5" />
+        <stop offset=".48" stop-color="#f8f4e8" />
+        <stop offset=".68" stop-color="#d9d8d0" />
+        <stop offset="1" stop-color="#fffdf6" />
+      </linearGradient>
+      <linearGradient id="katana-saya" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#322b28" />
+        <stop offset=".55" stop-color="#171413" />
+        <stop offset="1" stop-color="#4d2727" />
+      </linearGradient>
+    </defs>
+
+    <!-- 墨の一刷毛と朱の日輪で、和紙の背景から刀を浮かせる。 -->
+    <g class="katana-backdrop">
+      <circle cx="276" cy="74" r="48" />
+      <path d="M38 244 C107 220 151 175 213 128 C253 98 287 80 326 61" />
+      <path d="M53 255 C123 226 170 184 219 151" />
+    </g>
+
+    <!-- 黒漆の鞘。刀身と少し角度をずらし、抜刀した状態を示す。 -->
+    <g class="katana-sheath">
+      <path class="katana-saya" d="M70 247 Q187 179 291 75" />
+      <path class="katana-saya-shine" d="M77 239 Q184 175 281 82" />
+      <path class="katana-saya-mouth" d="M65 238 L79 258" />
+      <path class="katana-sageo" d="M118 217 C105 231 117 248 103 260 C93 269 82 260 91 251" />
+    </g>
+
+    <!-- 刀身、鎺、鍔、柄。刃文は控えめな波線で表現する。 -->
+    <g class="katana-sword">
+      <path class="katana-blade" d="M126 190 Q232 128 322 31 Q259 131 137 205 Z" />
+      <path class="katana-edge" d="M137 201 Q254 137 322 31" />
+      <path class="katana-hamon" d="M145 195 Q174 185 190 165 T235 137 T278 91" />
+      <path class="katana-habaki" d="M119 188 L136 181 L147 200 L132 209 Z" />
+      <path class="katana-tsuba" d="M106 181 Q124 181 144 208 Q137 221 121 214 Q107 201 106 181 Z" />
+      <path class="katana-handle" d="M124 207 L70 251" />
+      <path class="katana-handle-core" d="M119 205 L67 247" />
+      <path class="katana-wrap" d="M111 212 L121 220 M100 221 L110 229 M89 230 L99 238 M78 239 L88 247" />
+      <path class="katana-pommel" d="M63 246 L72 257" />
+    </g>
+
+    <g class="katana-glint">
+      <path d="M285 70 L307 48 M296 70 L286 55 M307 59 L322 61" />
+    </g>
+  </svg>
+
+  <main id="app" class="relative max-w-3xl mx-auto p-4 space-y-6">
+    <header class="text-center space-y-2 pt-2">
+      <h1 id="main-title" class="text-3xl font-bold tracking-[0.3em]">俳句遊戯</h1>
+      <div id="timer-box" class="hidden items-end gap-1 justify-center">
+        <span class="text-sm text-sumi-soft mb-1">残り</span>
+        <span id="timer" class="text-6xl font-bold text-shu tabular-nums leading-none">90</span>
+        <span class="text-sm text-sumi-soft mb-1">秒</span>
+      </div>
+    </header>
+
+    <section id="mode-select" class="space-y-8 text-center">
+      <div class="space-y-2">
+        <p class="text-sumi-soft">二つの遊びから、お好きな一句を。</p>
+        <p class="text-sm text-sumi-soft">ゲームを選択してください</p>
+      </div>
+      <div class="mode-grid">
+        <button id="choose-copy" class="mode-card" type="button">
+          <span class="mode-kicker">創作</span>
+          <strong>コピペ俳句</strong>
+          <small>札を組み替えて、偶然の名句を詠む</small>
+        </button>
+        <button id="choose-meiku" class="mode-card" type="button">
+          <span class="mode-kicker">記憶</span>
+          <strong>名句斬り</strong>
+          <small>迫る名句の空欄を埋め、完成した句を斬る</small>
+        </button>
+      </div>
+    </section>
+
+    <section id="intro" class="hidden space-y-6 text-center">
+      <button id="back-from-copy" class="back-button" type="button">← ゲーム選択へ</button>
+      <p class="text-sumi-soft">コピペで一句、詠んでみませんか。</p>
+      <ol class="mx-auto max-w-md text-left space-y-3">
+        <li class="flex gap-3 items-start">
+          <span class="shrink-0 w-7 h-7 rounded-full bg-shu text-washi grid place-items-center font-bold">一</span>
+          <span>五音・七音の<b>札をドラッグ</b>して、五・七・五の枠に一句を組みます。</span>
+        </li>
+        <li class="flex gap-3 items-start">
+          <span class="shrink-0 w-7 h-7 rounded-full bg-shu text-washi grid place-items-center font-bold">二</span>
+          <span>制限時間は<b>90秒</b>。できるだけ多く<b>提出</b>して詠み溜めましょう。</span>
+        </li>
+        <li class="flex gap-3 items-start">
+          <span class="shrink-0 w-7 h-7 rounded-full bg-shu text-washi grid place-items-center font-bold">三</span>
+          <span>宗匠・若手・翁の<b>3人のAI俳人</b>が「風流」と「シュール」で採点（<b>300点満点</b>）。</span>
+        </li>
+      </ol>
+      <fieldset class="selection-fieldset">
+        <legend>使用するデッキ</legend>
+        <div class="selection-grid">
+          <label class="selection-card">
+            <input type="radio" name="copy-deck" value="season" checked />
+            <strong>四季</strong>
+            <small>春夏秋冬を詠む40枚</small>
+          </label>
+          <label class="selection-card">
+            <input type="radio" name="copy-deck" value="daily" />
+            <strong>暮らし</strong>
+            <small>日常と電脳を混ぜた40枚</small>
+          </label>
+          <label class="selection-card">
+            <input type="radio" name="copy-deck" value="poetic" />
+            <strong>幻想</strong>
+            <small>夢・月・鏡を詠む40枚</small>
+          </label>
+          <label class="selection-card">
+            <input type="radio" name="copy-deck" value="mixed" />
+            <strong>ミックス</strong>
+            <small>すべての札を混ぜた195枚</small>
+          </label>
+        </div>
+      </fieldset>
+      <button id="start" class="px-10 py-3 rounded bg-shu text-washi font-bold tracking-[0.3em] text-lg hover:opacity-90 transition">はじめる</button>
+    </section>
+
+    <section id="compose" class="hidden space-y-6">
+      <p class="text-center text-sm text-sumi-soft">札を　五・七・五　の枠へ運んで一句どうぞ</p>
+      <div id="slots" class="flex gap-3 justify-center items-start">
+        <div class="slot slot-frame min-h-40 w-16" data-slot="0" data-mora="5">五</div>
+        <div class="slot slot-frame min-h-52 w-16" data-slot="1" data-mora="7">七</div>
+        <div class="slot slot-frame min-h-40 w-16" data-slot="2" data-mora="5">五</div>
+      </div>
+      <div class="flex justify-center">
+        <button id="submit" class="px-8 py-2 rounded bg-shu text-washi font-bold tracking-[0.3em] hover:opacity-90 disabled:opacity-30 transition" disabled>提出</button>
+      </div>
+      <div id="hand" class="flex flex-wrap gap-2 justify-center"></div>
+    </section>
+
+    <section id="timeup" class="hidden timeup-panel text-center space-y-6">
+      <p class="timeup-title">終了</p>
+      <p class="text-sumi-soft">鹿威しが時を告げました。</p>
+      <button id="show-results" class="px-10 py-3 rounded bg-shu text-washi font-bold tracking-[0.2em] text-lg hover:opacity-90 transition">
+        結果発表へ
+      </button>
+    </section>
+
+    <section id="results" class="hidden space-y-3"></section>
+
+    <section id="meiku-intro" class="hidden space-y-7 text-center">
+      <button id="back-from-meiku" class="back-button" type="button">← ゲーム選択へ</button>
+      <div class="space-y-2">
+        <p class="text-xl font-bold tracking-[0.18em]">迫る名句を完成させ、斬れ。</p>
+        <p class="text-sumi-soft">五・七・五の欠けた部分を、危険線へ届く前に答えます。</p>
+        <p class="text-sm text-sumi-soft">芭蕉・蕪村・一茶・子規の古典28句から、毎回10問。</p>
+      </div>
+      <ol class="mx-auto max-w-lg text-left space-y-3">
+        <li><b>一、</b> 奥から名句が迫ります。</li>
+        <li><b>二、</b> 空欄へ正しい言葉を選ぶ、または入力します。</li>
+        <li><b>三、</b> 正解した名句を斬り、連続正解を狙います。</li>
+      </ol>
+      <fieldset class="selection-fieldset">
+        <legend>難易度</legend>
+        <div class="selection-grid">
+          <label class="selection-card">
+            <input type="radio" name="meiku-level" value="easy" checked />
+            <strong>初級・見切</strong>
+            <small>4択／数字キー1〜4でも回答</small>
+          </label>
+          <label class="selection-card">
+            <input type="radio" name="meiku-level" value="hard" />
+            <strong>上級・居合</strong>
+            <small>キーボードで空欄を打ち込む</small>
+          </label>
+        </div>
+      </fieldset>
+      <button id="start-meiku" class="px-10 py-3 rounded bg-shu text-washi font-bold tracking-[0.3em] text-lg hover:opacity-90 transition" type="button">
+        いざ、抜刀
+      </button>
+    </section>
+
+    <section id="meiku-game" class="hidden meiku-game">
+      <div class="meiku-status" aria-label="名句斬りの進行状況">
+        <span>得点 <b id="meiku-score">0</b></span>
+        <span>連斬 <b id="meiku-streak">0</b></span>
+        <span>問題 <b id="meiku-progress">1 / 10</b></span>
+      </div>
+      <div class="meiku-stage">
+        <div class="meiku-depth-line meiku-depth-line-one"></div>
+        <div class="meiku-depth-line meiku-depth-line-two"></div>
+        <div id="meiku-card" class="meiku-card" aria-live="polite"></div>
+        <div class="meiku-danger-line"><span>間合い</span></div>
+        <i class="meiku-slash meiku-slash-one"></i>
+        <i class="meiku-slash meiku-slash-two"></i>
+      </div>
+      <p id="meiku-feedback" class="meiku-feedback"></p>
+      <div id="meiku-answers" class="meiku-answers"></div>
+      <form id="meiku-input-form" class="hidden meiku-input-form">
+        <input id="meiku-input" type="text" autocomplete="off" placeholder="欠けた部分を入力" aria-label="欠けた句の答え" />
+        <button type="submit">斬る</button>
+      </form>
+    </section>
+
+    <section id="meiku-result" class="hidden meiku-result text-center space-y-6">
+      <p class="mode-kicker">納刀</p>
+      <h2>名句斬り　結果</h2>
+      <div class="meiku-result-numbers">
+        <p><span id="meiku-result-score">0</span><small>点</small></p>
+          <p><span id="meiku-result-correct">0 / 10</span><small>正解</small></p>
+      </div>
+      <div class="flex justify-center gap-3">
+        <button id="meiku-retry" class="px-8 py-3 rounded bg-shu text-washi font-bold" type="button">もう一戦</button>
+        <button id="meiku-exit" class="px-8 py-3 rounded border border-sumi/30 bg-washi-dark font-bold" type="button">ゲーム選択へ</button>
+      </div>
+    </section>
+  </main>
+  <script defer src="./dist/app.js"></script>
+</body>
+</html>

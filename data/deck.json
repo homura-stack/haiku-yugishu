@@ -1,0 +1,2541 @@
+{
+  "fives": [
+    {
+      "id": "5-001",
+      "text": "ふるいけや",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -2,
+        "brightness": 1
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-002",
+      "text": "なつのよる",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -1,
+        "brightness": -2
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-003",
+      "text": "コンビニで",
+      "mora": 5,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": 1,
+        "brightness": 2
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-004",
+      "text": "むせびなく",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 2,
+        "brightness": -2
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "5-005",
+      "text": "しずかなり",
+      "mora": 5,
+      "kigo": false,
+      "pos": "adj",
+      "tone": {
+        "motion": -3,
+        "brightness": 0
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-006",
+      "text": "うちゅうから",
+      "mora": 5,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": 2,
+        "brightness": 1
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "5-007",
+      "text": "さくらちる",
+      "mora": 5,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-008",
+      "text": "むじんくん",
+      "mora": 5,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": 0,
+        "brightness": 0
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "5-009",
+      "text": "ゆきどけて",
+      "mora": 5,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-010",
+      "text": "かぜひいて",
+      "mora": 5,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 0,
+        "brightness": -1
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "5-011",
+      "text": "つきあかり",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -2,
+        "brightness": 0
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-012",
+      "text": "バグをふむ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 2,
+        "brightness": 0
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-013",
+      "text": "はるのかぜ",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": 1,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-014",
+      "text": "あたたかし",
+      "mora": 5,
+      "kigo": true,
+      "pos": "adj",
+      "tone": {
+        "motion": 0,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-015",
+      "text": "なつのくも",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": 0,
+        "brightness": 3
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-016",
+      "text": "せみしぐれ",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": 3,
+        "brightness": 2
+      },
+      "surreal": 1,
+      "cliche": true
+    },
+    {
+      "id": "5-017",
+      "text": "あきのつき",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -3,
+        "brightness": 1
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-018",
+      "text": "こおろぎや",
+      "mora": 5,
+      "kigo": true,
+      "pos": "other",
+      "tone": {
+        "motion": -1,
+        "brightness": -2
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-019",
+      "text": "ふゆぎんが",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -3,
+        "brightness": 2
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "5-020",
+      "text": "ゆきがふる",
+      "mora": 5,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": 1
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-021",
+      "text": "つゆのあさ",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -2,
+        "brightness": -1
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-022",
+      "text": "かきごおり",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": 0,
+        "brightness": 3
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-023",
+      "text": "いわしぐも",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -1,
+        "brightness": 2
+      },
+      "surreal": 1,
+      "cliche": true
+    },
+    {
+      "id": "5-024",
+      "text": "こがらしや",
+      "mora": 5,
+      "kigo": true,
+      "pos": "other",
+      "tone": {
+        "motion": 3,
+        "brightness": -2
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-025",
+      "text": "うめかおる",
+      "mora": 5,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": -1,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-026",
+      "text": "ほたるまう",
+      "mora": 5,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 2,
+        "brightness": 1
+      },
+      "surreal": 1,
+      "cliche": true
+    },
+    {
+      "id": "5-027",
+      "text": "もみじちる",
+      "mora": 5,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-028",
+      "text": "こたつねこ",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -3,
+        "brightness": 1
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "5-029",
+      "text": "コンビニへ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "other",
+      "tone": {
+        "motion": 1,
+        "brightness": 1
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-030",
+      "text": "スマホみる",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": -1,
+        "brightness": 0
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-031",
+      "text": "でんしゃくる",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 2,
+        "brightness": 0
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-032",
+      "text": "レジがなく",
+      "mora": 5,
+      "kigo": false,
+      "pos": "adj",
+      "tone": {
+        "motion": -1,
+        "brightness": -1
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "5-033",
+      "text": "バグがいる",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": -1
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-034",
+      "text": "エラーです",
+      "mora": 5,
+      "kigo": false,
+      "pos": "other",
+      "tone": {
+        "motion": 0,
+        "brightness": -2
+      },
+      "surreal": 2,
+      "cliche": true
+    },
+    {
+      "id": "5-035",
+      "text": "デプロイだ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "other",
+      "tone": {
+        "motion": 3,
+        "brightness": 1
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-036",
+      "text": "コードかく",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": 0
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-037",
+      "text": "サーバーよ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "other",
+      "tone": {
+        "motion": -2,
+        "brightness": -1
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-038",
+      "text": "ログがない",
+      "mora": 5,
+      "kigo": false,
+      "pos": "adj",
+      "tone": {
+        "motion": -2,
+        "brightness": -3
+      },
+      "surreal": 1,
+      "cliche": true
+    },
+    {
+      "id": "5-039",
+      "text": "わくせいへ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "other",
+      "tone": {
+        "motion": 2,
+        "brightness": 2
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "5-040",
+      "text": "つきのうら",
+      "mora": 5,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": -3,
+        "brightness": -2
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-041",
+      "text": "ロボがなく",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": -2
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "5-042",
+      "text": "むじんえき",
+      "mora": 5,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": -3,
+        "brightness": -2
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "5-043",
+      "text": "ねこがとぶ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 3,
+        "brightness": 2
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "5-044",
+      "text": "くもがわれ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 3,
+        "brightness": 3
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "5-045",
+      "text": "いしのこえ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": -2,
+        "brightness": -1
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-046",
+      "text": "とけいなし",
+      "mora": 5,
+      "kigo": false,
+      "pos": "adj",
+      "tone": {
+        "motion": -1,
+        "brightness": 0
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-047",
+      "text": "しずかだな",
+      "mora": 5,
+      "kigo": false,
+      "pos": "adj",
+      "tone": {
+        "motion": -3,
+        "brightness": 0
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-048",
+      "text": "まっくらだ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "adj",
+      "tone": {
+        "motion": -2,
+        "brightness": -3
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "5-049",
+      "text": "あかるすぎ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "adj",
+      "tone": {
+        "motion": 1,
+        "brightness": 3
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "5-050",
+      "text": "ひとりきり",
+      "mora": 5,
+      "kigo": false,
+      "pos": "other",
+      "tone": {
+        "motion": -3,
+        "brightness": -2
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-051",
+      "text": "なぜかいる",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 0,
+        "brightness": -1
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-052",
+      "text": "まだねむい",
+      "mora": 5,
+      "kigo": false,
+      "pos": "adj",
+      "tone": {
+        "motion": -3,
+        "brightness": -1
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-053",
+      "text": "はるのゆめ",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -1,
+        "brightness": 1
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "5-054",
+      "text": "かすみたつ",
+      "mora": 5,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": 1
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-055",
+      "text": "ひばりなく",
+      "mora": 5,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 2,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-056",
+      "text": "つくしんぼ",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": 0,
+        "brightness": 2
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "5-057",
+      "text": "はなのあめ",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -1,
+        "brightness": 0
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-058",
+      "text": "たねをまく",
+      "mora": 5,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 2,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-059",
+      "text": "あおたかぜ",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": 2,
+        "brightness": 3
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-060",
+      "text": "ゆうだちや",
+      "mora": 5,
+      "kigo": true,
+      "pos": "other",
+      "tone": {
+        "motion": 3,
+        "brightness": -1
+      },
+      "surreal": 1,
+      "cliche": true
+    },
+    {
+      "id": "5-061",
+      "text": "かぶとむし",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": 1,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-062",
+      "text": "ひるねかな",
+      "mora": 5,
+      "kigo": true,
+      "pos": "other",
+      "tone": {
+        "motion": -3,
+        "brightness": 1
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-063",
+      "text": "あさがおや",
+      "mora": 5,
+      "kigo": true,
+      "pos": "other",
+      "tone": {
+        "motion": -1,
+        "brightness": 3
+      },
+      "surreal": 1,
+      "cliche": true
+    },
+    {
+      "id": "5-064",
+      "text": "かわどこへ",
+      "mora": 5,
+      "kigo": true,
+      "pos": "other",
+      "tone": {
+        "motion": 1,
+        "brightness": 1
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-065",
+      "text": "きりのむら",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -3,
+        "brightness": -1
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-066",
+      "text": "しかのこえ",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -1,
+        "brightness": -2
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "5-067",
+      "text": "くりひろう",
+      "mora": 5,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-068",
+      "text": "よながかな",
+      "mora": 5,
+      "kigo": true,
+      "pos": "other",
+      "tone": {
+        "motion": -3,
+        "brightness": -2
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-069",
+      "text": "いなほゆれ",
+      "mora": 5,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 2,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-070",
+      "text": "きくびより",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -2,
+        "brightness": 2
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "5-071",
+      "text": "しもばしら",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -2,
+        "brightness": 1
+      },
+      "surreal": 1,
+      "cliche": true
+    },
+    {
+      "id": "5-072",
+      "text": "たきびあと",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -3,
+        "brightness": -1
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-073",
+      "text": "みかんむく",
+      "mora": 5,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-074",
+      "text": "つららおち",
+      "mora": 5,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 2,
+        "brightness": 0
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "5-075",
+      "text": "ふゆのうみ",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -1,
+        "brightness": -2
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-076",
+      "text": "いきがしろ",
+      "mora": 5,
+      "kigo": true,
+      "pos": "adj",
+      "tone": {
+        "motion": 0,
+        "brightness": 0
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-077",
+      "text": "はつひので",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -1,
+        "brightness": 3
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-078",
+      "text": "かどまつや",
+      "mora": 5,
+      "kigo": true,
+      "pos": "other",
+      "tone": {
+        "motion": -2,
+        "brightness": 2
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "5-079",
+      "text": "はつもうで",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": 2,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "5-080",
+      "text": "もちをつく",
+      "mora": 5,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 3,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-081",
+      "text": "あさしずか",
+      "mora": 5,
+      "kigo": false,
+      "pos": "adj",
+      "tone": {
+        "motion": -3,
+        "brightness": 1
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-082",
+      "text": "ちゃわんおく",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 0,
+        "brightness": 0
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-083",
+      "text": "みちしずか",
+      "mora": 5,
+      "kigo": false,
+      "pos": "adj",
+      "tone": {
+        "motion": -3,
+        "brightness": 0
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-084",
+      "text": "かぜつよし",
+      "mora": 5,
+      "kigo": false,
+      "pos": "adj",
+      "tone": {
+        "motion": 3,
+        "brightness": 0
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-085",
+      "text": "そらあおし",
+      "mora": 5,
+      "kigo": false,
+      "pos": "adj",
+      "tone": {
+        "motion": -1,
+        "brightness": 3
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-086",
+      "text": "こえをまつ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": -2,
+        "brightness": -1
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "5-087",
+      "text": "スマホふせ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": -1,
+        "brightness": 0
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "5-088",
+      "text": "バスはまだ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "other",
+      "tone": {
+        "motion": -2,
+        "brightness": -1
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "5-089",
+      "text": "バグはねる",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 3,
+        "brightness": 0
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-090",
+      "text": "ほしのドア",
+      "mora": 5,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": 1,
+        "brightness": 2
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "5-091",
+      "text": "ロボとおちゃ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": -2,
+        "brightness": 1
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-092",
+      "text": "ゆめのそと",
+      "mora": 5,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": -2,
+        "brightness": -1
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "5-093",
+      "text": "つきがとぶ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 2,
+        "brightness": 1
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "5-094",
+      "text": "ゆめをぬう",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": -1,
+        "brightness": 0
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "5-095",
+      "text": "かげがさく",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": -2
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "5-096",
+      "text": "そらのうら",
+      "mora": 5,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": -2,
+        "brightness": 0
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "5-097",
+      "text": "ほしをかう",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 0,
+        "brightness": 3
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "5-098",
+      "text": "かぜのたま",
+      "mora": 5,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": 2,
+        "brightness": 1
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-099",
+      "text": "みずがねる",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": -3,
+        "brightness": -1
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-100",
+      "text": "よるをおる",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": -1,
+        "brightness": -3
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "5-101",
+      "text": "くもがなく",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": -1
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-102",
+      "text": "にじのこえ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": 0,
+        "brightness": 3
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-103",
+      "text": "つきのまど",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -2,
+        "brightness": 1
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-104",
+      "text": "ゆめのそこ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": -3,
+        "brightness": -2
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-105",
+      "text": "かがみうみ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": -2,
+        "brightness": 1
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "5-106",
+      "text": "はながとぶ",
+      "mora": 5,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 3,
+        "brightness": 3
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-107",
+      "text": "そらをつむ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 0,
+        "brightness": 2
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "5-108",
+      "text": "ひかりごけ",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -3,
+        "brightness": 2
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "5-109",
+      "text": "あめのつの",
+      "mora": 5,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": 1,
+        "brightness": -1
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "5-110",
+      "text": "とりがゆめ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": 1,
+        "brightness": 1
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-111",
+      "text": "こえがふる",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": -2
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-112",
+      "text": "ゆきのした",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -3,
+        "brightness": 0
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "5-113",
+      "text": "つきふたつ",
+      "mora": 5,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -2,
+        "brightness": 2
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "5-114",
+      "text": "かぜをかむ",
+      "mora": 5,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 2,
+        "brightness": 0
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "5-115",
+      "text": "うみのひも",
+      "mora": 5,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": 1,
+        "brightness": 0
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "5-116",
+      "text": "よるのはね",
+      "mora": 5,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": -1,
+        "brightness": -2
+      },
+      "surreal": 2,
+      "cliche": false
+    }
+  ],
+  "sevens": [
+    {
+      "id": "7-001",
+      "text": "かわずとびこむ",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 3,
+        "brightness": 0
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "7-002",
+      "text": "みずのおとする",
+      "mora": 7,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": 1,
+        "brightness": 0
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "7-003",
+      "text": "スマホみつめて",
+      "mora": 7,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 0,
+        "brightness": 1
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "7-004",
+      "text": "エラーはきだす",
+      "mora": 7,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 2,
+        "brightness": -1
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "7-005",
+      "text": "こころもとなく",
+      "mora": 7,
+      "kigo": false,
+      "pos": "adj",
+      "tone": {
+        "motion": -1,
+        "brightness": -1
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "7-006",
+      "text": "ねこがのびして",
+      "mora": 7,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": 2
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "7-007",
+      "text": "うちゅうとびたつ",
+      "mora": 7,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 3,
+        "brightness": 1
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "7-008",
+      "text": "しずけさしみる",
+      "mora": 7,
+      "kigo": true,
+      "pos": "adj",
+      "tone": {
+        "motion": -3,
+        "brightness": 0
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "7-009",
+      "text": "はるかぜのなか",
+      "mora": 7,
+      "kigo": true,
+      "pos": "other",
+      "tone": {
+        "motion": 1,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "7-010",
+      "text": "さくらのふぶき",
+      "mora": 7,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": 3,
+        "brightness": 3
+      },
+      "surreal": 1,
+      "cliche": true
+    },
+    {
+      "id": "7-011",
+      "text": "つばめがかえる",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 2,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "7-012",
+      "text": "あおばがひかる",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": 3
+      },
+      "surreal": 1,
+      "cliche": true
+    },
+    {
+      "id": "7-013",
+      "text": "なつくさしげる",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "7-014",
+      "text": "せみのこえだけ",
+      "mora": 7,
+      "kigo": true,
+      "pos": "other",
+      "tone": {
+        "motion": 2,
+        "brightness": 1
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "7-015",
+      "text": "あきかぜわたる",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 2,
+        "brightness": 0
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "7-016",
+      "text": "つきかげしずか",
+      "mora": 7,
+      "kigo": true,
+      "pos": "adj",
+      "tone": {
+        "motion": -3,
+        "brightness": 1
+      },
+      "surreal": 1,
+      "cliche": true
+    },
+    {
+      "id": "7-017",
+      "text": "しぐれのホーム",
+      "mora": 7,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": 1,
+        "brightness": -2
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "7-018",
+      "text": "はつゆきのまち",
+      "mora": 7,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -2,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "7-019",
+      "text": "ふゆぞらあおし",
+      "mora": 7,
+      "kigo": true,
+      "pos": "adj",
+      "tone": {
+        "motion": -2,
+        "brightness": 2
+      },
+      "surreal": 1,
+      "cliche": true
+    },
+    {
+      "id": "7-020",
+      "text": "こたつからでず",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": -3,
+        "brightness": 1
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "7-021",
+      "text": "コンビニのよる",
+      "mora": 7,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": 0,
+        "brightness": 1
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "7-022",
+      "text": "スマホがひかる",
+      "mora": 7,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": -1,
+        "brightness": 2
+      },
+      "surreal": 1,
+      "cliche": true
+    },
+    {
+      "id": "7-023",
+      "text": "でんしゃはこない",
+      "mora": 7,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": -2,
+        "brightness": -1
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "7-024",
+      "text": "レジぶくろなし",
+      "mora": 7,
+      "kigo": false,
+      "pos": "adj",
+      "tone": {
+        "motion": 0,
+        "brightness": 0
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "7-025",
+      "text": "バグだけのこる",
+      "mora": 7,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": -1,
+        "brightness": -2
+      },
+      "surreal": 2,
+      "cliche": true
+    },
+    {
+      "id": "7-026",
+      "text": "エラーがわらう",
+      "mora": 7,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 2,
+        "brightness": -1
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "7-027",
+      "text": "デプロイのあと",
+      "mora": 7,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": -2,
+        "brightness": 0
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "7-028",
+      "text": "コードがもえる",
+      "mora": 7,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 3,
+        "brightness": 2
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "7-029",
+      "text": "サーバーねむる",
+      "mora": 7,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": -3,
+        "brightness": -2
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "7-030",
+      "text": "ログにもないよ",
+      "mora": 7,
+      "kigo": false,
+      "pos": "adj",
+      "tone": {
+        "motion": -1,
+        "brightness": -3
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "7-031",
+      "text": "うちゅうのはしで",
+      "mora": 7,
+      "kigo": false,
+      "pos": "other",
+      "tone": {
+        "motion": -2,
+        "brightness": 1
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "7-032",
+      "text": "かせいでまよう",
+      "mora": 7,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": -1
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "7-033",
+      "text": "ロボットのゆめ",
+      "mora": 7,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": -2,
+        "brightness": 1
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "7-034",
+      "text": "むじんえきから",
+      "mora": 7,
+      "kigo": false,
+      "pos": "other",
+      "tone": {
+        "motion": -3,
+        "brightness": -2
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "7-035",
+      "text": "ねこだけうかぶ",
+      "mora": 7,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": 2
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "7-036",
+      "text": "じかんがとける",
+      "mora": 7,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": -1,
+        "brightness": -1
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "7-037",
+      "text": "ことばがきえる",
+      "mora": 7,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": -2,
+        "brightness": -2
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "7-038",
+      "text": "だれもいないね",
+      "mora": 7,
+      "kigo": false,
+      "pos": "adj",
+      "tone": {
+        "motion": -3,
+        "brightness": -3
+      },
+      "surreal": 1,
+      "cliche": true
+    },
+    {
+      "id": "7-039",
+      "text": "はるさめこみち",
+      "mora": 7,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -1,
+        "brightness": 0
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "7-040",
+      "text": "うぐいすのこえ",
+      "mora": 7,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": 1,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "7-041",
+      "text": "なのはなゆれる",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 2,
+        "brightness": 3
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "7-042",
+      "text": "はなびらをおう",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 2,
+        "brightness": 2
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "7-043",
+      "text": "あまがえるなく",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 2,
+        "brightness": 1
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "7-044",
+      "text": "ほたるびのかわ",
+      "mora": 7,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": 1,
+        "brightness": 1
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "7-045",
+      "text": "うみかぜすずし",
+      "mora": 7,
+      "kigo": true,
+      "pos": "adj",
+      "tone": {
+        "motion": 1,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "7-046",
+      "text": "あさつゆひかる",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": -1,
+        "brightness": 3
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "7-047",
+      "text": "あかとんぼとぶ",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 2,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "7-048",
+      "text": "すすきがそよぐ",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": 0
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "7-049",
+      "text": "きくのかおりや",
+      "mora": 7,
+      "kigo": true,
+      "pos": "other",
+      "tone": {
+        "motion": -2,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "7-050",
+      "text": "おちばふみゆく",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": 0
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "7-051",
+      "text": "ゆきみちをゆく",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": 0
+      },
+      "surreal": 0,
+      "cliche": true
+    },
+    {
+      "id": "7-052",
+      "text": "きたかぜのまち",
+      "mora": 7,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": 3,
+        "brightness": -2
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "7-053",
+      "text": "ふゆばれのそら",
+      "mora": 7,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -2,
+        "brightness": 3
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "7-054",
+      "text": "すみやきけむる",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": -1
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "7-055",
+      "text": "はつぞらあおぐ",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": 3
+      },
+      "surreal": 1,
+      "cliche": true
+    },
+    {
+      "id": "7-056",
+      "text": "ななくさをつむ",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": 2
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "7-057",
+      "text": "ゆうぐれさびし",
+      "mora": 7,
+      "kigo": false,
+      "pos": "adj",
+      "tone": {
+        "motion": -3,
+        "brightness": -2
+      },
+      "surreal": 0,
+      "cliche": false
+    },
+    {
+      "id": "7-058",
+      "text": "こころはしずか",
+      "mora": 7,
+      "kigo": false,
+      "pos": "adj",
+      "tone": {
+        "motion": -3,
+        "brightness": 0
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "7-059",
+      "text": "えんがわでおちゃ",
+      "mora": 7,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": -2,
+        "brightness": 1
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "7-060",
+      "text": "あめおとをきく",
+      "mora": 7,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": -2,
+        "brightness": -1
+      },
+      "surreal": 1,
+      "cliche": false
+    },
+    {
+      "id": "7-061",
+      "text": "とおくのベルね",
+      "mora": 7,
+      "kigo": false,
+      "pos": "other",
+      "tone": {
+        "motion": 0,
+        "brightness": -1
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "7-062",
+      "text": "スマホをしまう",
+      "mora": 7,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": -1,
+        "brightness": 1
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "7-063",
+      "text": "そらにロボット",
+      "mora": 7,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": 1,
+        "brightness": 2
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "7-064",
+      "text": "つきのうらがわ",
+      "mora": 7,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": -2,
+        "brightness": 0
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "7-065",
+      "text": "そらからさかな",
+      "mora": 7,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": 2,
+        "brightness": 2
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "7-066",
+      "text": "かがみのむこう",
+      "mora": 7,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": -2,
+        "brightness": -1
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "7-067",
+      "text": "ゆめからかえる",
+      "mora": 7,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": 0
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "7-068",
+      "text": "かげだけおどる",
+      "mora": 7,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": 3,
+        "brightness": -2
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "7-069",
+      "text": "くもよりてがみ",
+      "mora": 7,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": 0,
+        "brightness": 1
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "7-070",
+      "text": "つきからしずく",
+      "mora": 7,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": 1,
+        "brightness": 1
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "7-071",
+      "text": "ひかりがねむる",
+      "mora": 7,
+      "kigo": false,
+      "pos": "verb",
+      "tone": {
+        "motion": -3,
+        "brightness": 2
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "7-072",
+      "text": "そらにかいだん",
+      "mora": 7,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": 1,
+        "brightness": 2
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "7-073",
+      "text": "みなもにとびら",
+      "mora": 7,
+      "kigo": false,
+      "pos": "noun",
+      "tone": {
+        "motion": -1,
+        "brightness": 0
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "7-074",
+      "text": "はなびらねむる",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": -3,
+        "brightness": 2
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "7-075",
+      "text": "ふうりんがとぶ",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 3,
+        "brightness": 2
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "7-076",
+      "text": "こおろぎのふね",
+      "mora": 7,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": 0,
+        "brightness": -1
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "7-077",
+      "text": "ゆきうさぎまう",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 2,
+        "brightness": 2
+      },
+      "surreal": 2,
+      "cliche": false
+    },
+    {
+      "id": "7-078",
+      "text": "ゆうやけをのむ",
+      "mora": 7,
+      "kigo": true,
+      "pos": "verb",
+      "tone": {
+        "motion": 1,
+        "brightness": 3
+      },
+      "surreal": 3,
+      "cliche": false
+    },
+    {
+      "id": "7-079",
+      "text": "ほたるのてがみ",
+      "mora": 7,
+      "kigo": true,
+      "pos": "noun",
+      "tone": {
+        "motion": 0,
+        "brightness": 1
+      },
+      "surreal": 2,
+      "cliche": false
+    }
+  ]
+}
