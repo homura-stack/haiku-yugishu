@@ -212,6 +212,21 @@ export function isMeikuCorrect(question, answer) {
   return question.readings.some((reading) => normalizeMeikuAnswer(reading) === normalized);
 }
 
+export function resolveMeikuAnswer({ correct, score, streak }) {
+  if (!correct) return { locked: true, score, streak: 0, correctIncrement: 0 };
+  const nextStreak = streak + 1;
+  return {
+    locked: true,
+    score: score + 100 + Math.min(100, (nextStreak - 1) * 20),
+    streak: nextStreak,
+    correctIncrement: 1,
+  };
+}
+
+export function getMeikuRemainingSeconds(deadline, now = Date.now()) {
+  return Math.max(0, Math.ceil((deadline - now) / 1000));
+}
+
 const shuffle = (items) => {
   const copy = [...items];
   for (let i = copy.length - 1; i > 0; i -= 1) {
@@ -236,6 +251,7 @@ export function setupMeiku({
   const scoreEl = document.getElementById('meiku-score');
   const streakEl = document.getElementById('meiku-streak');
   const progressEl = document.getElementById('meiku-progress');
+  const remainingEl = document.getElementById('meiku-remaining');
   const resultScoreEl = document.getElementById('meiku-result-score');
   const resultCorrectEl = document.getElementById('meiku-result-correct');
   const retryBtn = document.getElementById('meiku-retry');
@@ -251,8 +267,17 @@ export function setupMeiku({
   let streak = 0;
   let correctCount = 0;
   let timeoutId = null;
+  let countdownId = null;
   let locked = false;
   let active = false;
+
+  const clearQuestionTimers = () => {
+    window.clearTimeout(timeoutId);
+    window.clearInterval(countdownId);
+    timeoutId = null;
+    countdownId = null;
+    remainingEl.textContent = '—';
+  };
 
   const updateStatus = () => {
     scoreEl.textContent = String(score);
@@ -268,6 +293,7 @@ export function setupMeiku({
   };
 
   const nextQuestion = () => {
+    clearQuestionTimers();
     questionIndex += 1;
     if (questionIndex >= questions.length) {
       active = false;
@@ -280,23 +306,25 @@ export function setupMeiku({
     renderQuestion();
   };
 
-  const resolveQuestion = (correct, message) => {
+  // 正誤・時間切れを同じ終了経路へ集約し、一問中の再回答を確実に防ぐ。
+  const finishQuestion = ({ correct, message, cardState, delay }) => {
     if (locked) return;
+    const resolution = resolveMeikuAnswer({ correct, score, streak });
+    locked = resolution.locked;
+    score = resolution.score;
+    streak = resolution.streak;
+    correctCount += resolution.correctIncrement;
+    clearQuestionTimers();
     if (!correct) {
-      streak = 0;
       updateStatus();
-      feedbackEl.textContent = message;
+      fillCompletedPhrase();
+      feedbackEl.textContent = `${message}　正解：${currentQuestion.parts[currentQuestion.blank]}`;
       feedbackEl.className = 'meiku-feedback is-wrong';
-      cardEl.classList.add('is-wrong');
-      window.setTimeout(() => cardEl.classList.remove('is-wrong'), 300);
+      cardEl.classList.add(cardState);
+      window.setTimeout(nextQuestion, delay);
       return;
     }
 
-    locked = true;
-    window.clearTimeout(timeoutId);
-    streak += 1;
-    correctCount += 1;
-    score += 100 + Math.min(100, (streak - 1) * 20);
     updateStatus();
     fillCompletedPhrase();
     feedbackEl.textContent = '正解　――　斬！';
@@ -305,27 +333,35 @@ export function setupMeiku({
     katanaEl.classList.remove('is-striking');
     void katanaEl.offsetWidth;
     katanaEl.classList.add('is-striking');
-    window.setTimeout(nextQuestion, 1050);
+    window.setTimeout(nextQuestion, delay);
+  };
+
+  const resolveQuestion = (correct, message) => {
+    finishQuestion({
+      correct,
+      message,
+      cardState: correct ? 'is-cleared' : 'is-wrong',
+      delay: correct ? 1050 : 1500,
+    });
   };
 
   const missQuestion = () => {
-    if (locked) return;
-    locked = true;
-    streak = 0;
-    updateStatus();
-    fillCompletedPhrase();
-    feedbackEl.textContent = `時間切れ　正解：${currentQuestion.parts[currentQuestion.blank]}`;
-    feedbackEl.className = 'meiku-feedback is-wrong';
-    cardEl.classList.add('is-missed');
-    window.setTimeout(nextQuestion, 1500);
+    finishQuestion({ correct: false, message: '時間切れ', cardState: 'is-missed', delay: 1500 });
   };
 
   const renderQuestion = () => {
+    clearQuestionTimers();
     currentQuestion = questions[questionIndex];
     currentChoices = shuffle(currentQuestion.choices);
     locked = false;
     katanaEl.classList.remove('is-striking');
     const duration = level === 'easy' ? 11000 : 16000;
+    const deadline = Date.now() + duration;
+    const updateRemaining = () => {
+      remainingEl.textContent = String(getMeikuRemainingSeconds(deadline));
+    };
+    updateRemaining();
+    countdownId = window.setInterval(updateRemaining, 250);
 
     cardEl.className = 'meiku-card';
     cardEl.style.setProperty('--approach-duration', `${duration}ms`);
@@ -367,6 +403,7 @@ export function setupMeiku({
   };
 
   const start = () => {
+    clearQuestionTimers();
     level = document.querySelector('input[name="meiku-level"]:checked')?.value ?? 'easy';
     questions = shuffle(MEIKU_QUESTIONS).slice(0, MEIKU_ROUND_SIZE);
     questionIndex = 0;
@@ -377,13 +414,15 @@ export function setupMeiku({
     introEl.classList.add('hidden');
     resultEl.classList.add('hidden');
     gameEl.classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'auto' });
+    gameEl.focus({ preventScroll: true });
     renderQuestion();
   };
 
   startBtn.addEventListener('click', start);
   retryBtn.addEventListener('click', start);
   exitBtn.addEventListener('click', () => {
-    window.clearTimeout(timeoutId);
+    clearQuestionTimers();
     active = false;
     resultEl.classList.add('hidden');
     onExit();

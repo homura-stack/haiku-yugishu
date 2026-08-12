@@ -5,14 +5,14 @@ import { createStore } from './storage.js';
  * 自分の句とシード句を統合採点し、ランキングと講評を描画。セッションを保存。
  * 順位・得点は「3俳人の合計点（300点満点）」を主指標にする。
  */
-export function renderResults(container, { deck, seedJson, submissions }) {
+export function renderResults(container, { deck, seedJson, submissions, onExit = null }) {
   const mine = submissions.map((cards, i) => ({ author: `あなた#${i + 1}`, cards, isMine: true }));
   const seeds = buildSeedEntries(seedJson, deck.byId).map((e) => ({ ...e, isMine: false }));
   const ranked = rankEntries([...mine, ...seeds]);
 
   const myBest = ranked.filter((e) => e.isMine).reduce((m, e) => Math.max(m, e.poetTotal), 0);
   const store = createStore();
-  store.saveSession({ at: new Date().toISOString(), bestTotal: myBest, count: submissions.length });
+  const saved = store.saveSession({ at: new Date().toISOString(), bestTotal: myBest, count: submissions.length });
 
   container.innerHTML = `
     <h2 class="text-2xl font-bold text-center tracking-[0.3em]">結果発表</h2>
@@ -22,6 +22,7 @@ export function renderResults(container, { deck, seedJson, submissions }) {
       <span class="text-sm">/ 300点</span>
       <span class="block text-xs mt-1">（自己ベスト ${store.bestTotal()} / 300）</span>
     </p>
+    ${saved ? '' : '<p class="storage-warning text-center" role="status">今回の結果は表示できますが、端末へ記録を保存できませんでした。</p>'}
   `;
 
   const grid = document.createElement('div');
@@ -63,8 +64,16 @@ export function renderResults(container, { deck, seedJson, submissions }) {
   container.appendChild(grid);
 
   const again = document.createElement('button');
-  again.className = 'block mx-auto px-10 py-3 rounded bg-shu text-washi font-bold tracking-[0.3em] text-lg hover:opacity-90 transition';
+  again.className = 'app-primary-action block mx-auto px-10 py-3 rounded tracking-[0.3em] text-lg transition';
   again.textContent = 'もう一度';
   again.addEventListener('click', () => location.reload());
   container.appendChild(again);
+
+  if (onExit) {
+    const exit = document.createElement('button');
+    exit.className = 'app-secondary-action block mx-auto mt-3 px-8 py-2 rounded';
+    exit.textContent = '難易度選択へ';
+    exit.addEventListener('click', onExit);
+    container.appendChild(exit);
+  }
 }

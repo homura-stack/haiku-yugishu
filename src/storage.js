@@ -17,9 +17,14 @@ export function createStore(backend = globalThis.localStorage) {
   return {
     loadHistory,
     saveSession(session) {
-      const hist = loadHistory();
-      hist.push(session);
-      backend.setItem(KEY, JSON.stringify(hist));
+      try {
+        const hist = loadHistory();
+        hist.push(session);
+        backend.setItem(KEY, JSON.stringify(hist));
+        return true;
+      } catch {
+        return false;
+      }
     },
     bestTotal() {
       return loadHistory().reduce((m, s) => Math.max(m, s.bestTotal ?? 0), 0);

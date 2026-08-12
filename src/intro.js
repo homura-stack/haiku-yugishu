@@ -13,9 +13,7 @@ export function setupIntro({ introEl, composeEl, startBtn, onStart }) {
     // file:// で保存領域が無効でも、ゲーム開始は妨げない。
   }
 
-  startBtn.addEventListener(
-    'click',
-    () => {
+  startBtn.addEventListener('click', () => {
       try {
         localStorage.setItem(PLAYED_KEY, '1');
       } catch {
@@ -24,7 +22,5 @@ export function setupIntro({ introEl, composeEl, startBtn, onStart }) {
       introEl.classList.add('hidden');
       composeEl.classList.remove('hidden');
       onStart();
-    },
-    { once: true },
-  );
+  });
 }

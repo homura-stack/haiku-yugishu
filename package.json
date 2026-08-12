@@ -4,12 +4,16 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "test": "node --test",
+    "test:unit": "node --test",
+    "check:offline": "node ./scripts/build-offline.mjs --check",
+    "test": "npm run test:unit && npm run check:offline",
+    "test:browser": "npm run build && playwright test",
     "build:css": "tailwindcss -i ./styles/input.css -o ./dist/styles.css --minify",
     "build:js": "node ./scripts/build-offline.mjs",
     "build": "npm run build:css && npm run build:js"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "tailwindcss": "^3.4.0"
   }
 }

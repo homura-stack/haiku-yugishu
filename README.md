@@ -1,33 +1,37 @@
-# コピペ俳句
+# 俳句遊戯集
 
-ランダムな五音・七音の断片を組み替えて俳句を作り、3人のAI俳人が採点する一人用Webゲーム。
-ZEN Study プログラミングコンテスト 2026夏 / Webページ部門 応募作品。
+俳句を「組み替える」「借りて作り直す」「記憶して斬る」の三方向から遊ぶ、ブラウザ向けの一人用Webゲーム作品集です。
 
-## 開発
-- `npm install` … devDependencies（tailwindcss）を導入
-- `npm run build:css` … `dist/styles.css` を生成
-- `npm test` … 純粋ロジックの単体テスト（node:test）
+## 収録モード
 
-## 遊び方
-1. 「はじめる」で開始（90秒）。
-2. 五音・七音の**札をドラッグ**して、五・七・五の枠に一句を組む。
-3. 3枠そろったら**提出**。時間内にできるだけ多く詠む。
-4. 時間切れで、宗匠・若手・翁の**3人のAI俳人**が「風流」と「シュール」で採点（**300点満点**）。自作句とお手本句がランキングされる。
+- **コピペ俳句（通常）**: 五音・七音の札を組み替え、90秒でできるだけ多くの句を提出します。
+- **盗作率鑑定所（ハード）**: 4つの名句から切り出した12枚の札と自由語を使い、五・七・五を3句作ります。批評家botが盗作率を鑑定し、`100 - 盗作率`を得点にします。
+- **名句斬り**: 芭蕉・蕪村・一茶・子規の名句の空欄を完成させ、10問の得点と連続正解を競います。
 
-## 技術メモ
-- **HTML / CSS / JavaScript（ES Modules）のみ**。外部JSライブラリ不使用（CSSは Tailwind をCLIで静的ビルドして同梱）。
-- 実行時に**サーバー・APIキー・ネット接続不要**。`index.html` を開くだけで動作（オフライン可）。
-- 採点・講評・配札・ランキングは**DOM非依存の純関数**として実装し、`node:test` で単体テスト（外部依存ゼロ）。
+すべてのモードは最初から選択できます。通常モードと名句斬りの既存記録は維持し、盗作率鑑定所は3句合計300点の自己ベストを端末内に保存します。
 
-## ローカルで動かす
-`fetch` を使うため `file://` ではなくローカルサーバ経由で開く：
-```
-npx serve .     # 例: http://localhost:3000 を開く
+## 開発と検証
+
+```powershell
+npm.cmd install
+npm.cmd test
+npm.cmd run build
+npm.cmd run test:browser
+node --check dist\app.js
 ```
 
-## デプロイ（GitHub Pages）
-1. このリポジトリを GitHub に **Public** で push。
-2. Settings → Pages → Branch を `main` / `(root)` に設定。
-   - ※ `copipe-haiku/` をサブディレクトリで運用している場合は、`copipe-haiku` の中身をリポジトリのルートに置くか、`copipe-haiku` 自体をリポジトリのルートにする。
-3. 公開URLの `index.html` が PC / スマホ Chrome で動作することを確認。
-4. 提出フォームに **GitHubリポジトリURL（Public）** と **ホスティングURL** を記入。
+`npm test` はNodeテストとオフライン生成物の鮮度を確認します。`npm run test:browser` はビルド後、Google ChromeでPC幅・390px幅・`file://`起動を検証します。
+
+ローカルサーバーで確認する場合:
+
+```powershell
+python -m http.server 4173
+```
+
+`http://127.0.0.1:4173/` をPC・スマートフォン幅で確認してください。
+
+## 配布
+
+HTML / Tailwind CSS / Vanilla JavaScriptのみで構成し、外部APIや実行時通信を必要としません。`npm run build` はデータを `dist/app.js` に埋め込むため、`index.html` の直接起動とGitHub Pagesなどの静的公開に対応します。
+
+盗作率鑑定所で照合する代表名句の出典URLは [data/hard-source-haiku.json](data/hard-source-haiku.json) に記録しています。

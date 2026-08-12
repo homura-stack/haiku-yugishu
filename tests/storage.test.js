@@ -33,3 +33,13 @@ test('空履歴でも壊れない', () => {
   assert.deepEqual(store.loadHistory(), []);
   assert.equal(store.bestTotal(), 0);
 });
+
+test('保存先が拒否しても例外を投げず失敗を返す', () => {
+  const backend = {
+    getItem: () => null,
+    setItem: () => { throw new Error('storage denied'); },
+  };
+  const store = createStore(backend);
+  assert.equal(store.saveSession({ at: 'now', bestTotal: 180, count: 2 }), false);
+  assert.deepEqual(store.loadHistory(), []);
+});

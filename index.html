@@ -3,7 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>コピペ俳句</title>
+  <meta name="description" content="コピペ俳句、盗作率鑑定所、名句斬りを収録した俳句Webゲーム作品集。" />
+  <title>俳句遊戯集</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23f8f1e4'/%3E%3Ccircle cx='32' cy='32' r='18' fill='%23982f2f'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="./dist/styles.css" />
 </head>
 <body class="text-sumi min-h-screen font-mincho">
@@ -161,7 +163,7 @@
 
   <main id="app" class="relative max-w-3xl mx-auto p-4 space-y-6">
     <header class="text-center space-y-2 pt-2">
-      <h1 id="main-title" class="text-3xl font-bold tracking-[0.3em]">俳句遊戯</h1>
+      <h1 id="main-title" class="text-3xl font-bold tracking-[0.3em]">俳句遊戯集</h1>
       <div id="timer-box" class="hidden items-end gap-1 justify-center">
         <span class="text-sm text-sumi-soft mb-1">残り</span>
         <span id="timer" class="text-6xl font-bold text-shu tabular-nums leading-none">90</span>
@@ -171,7 +173,7 @@
 
     <section id="mode-select" class="space-y-8 text-center">
       <div class="space-y-2">
-        <p class="text-sumi-soft">二つの遊びから、お好きな一句を。</p>
+        <p class="text-sumi-soft">三つの俳句遊びを、一つの作品集に。</p>
         <p class="text-sm text-sumi-soft">ゲームを選択してください</p>
       </div>
       <div class="mode-grid">
@@ -188,8 +190,31 @@
       </div>
     </section>
 
+    <section id="copy-mode-select" class="hidden space-y-8 text-center">
+      <nav class="breadcrumb" aria-label="現在地">作品集 <span>›</span> コピペ俳句</nav>
+      <button id="back-from-copy-select" class="back-button" type="button">← 作品集へ</button>
+      <div class="space-y-2">
+        <p class="text-xl font-bold tracking-[0.18em]">コピペ俳句</p>
+        <p class="text-sm text-sumi-soft">遊び方を選んでください</p>
+      </div>
+      <div class="mode-grid">
+        <button id="choose-copy-normal" class="mode-card" type="button">
+          <span class="mode-kicker">通常</span>
+          <strong>コピペ俳句</strong>
+          <small>札を組み替え、90秒で何句も詠む</small>
+        </button>
+        <button id="choose-copy-hard" class="mode-card" type="button">
+          <span class="mode-kicker">ハード</span>
+          <strong>盗作率鑑定所</strong>
+          <small>名句の札と自由語で三句を作り、盗作率を測る</small>
+          <small id="hard-best-summary">自己ベスト　未記録</small>
+        </button>
+      </div>
+    </section>
+
     <section id="intro" class="hidden space-y-6 text-center">
-      <button id="back-from-copy" class="back-button" type="button">← ゲーム選択へ</button>
+      <nav class="breadcrumb" aria-label="現在地">作品集 <span>›</span> コピペ俳句 <span>›</span> 通常</nav>
+      <button id="back-from-copy" class="back-button" type="button">← 難易度選択へ</button>
       <p class="text-sumi-soft">コピペで一句、詠んでみませんか。</p>
       <ol class="mx-auto max-w-md text-left space-y-3">
         <li class="flex gap-3 items-start">
@@ -230,26 +255,30 @@
           </label>
         </div>
       </fieldset>
-      <button id="start" class="px-10 py-3 rounded bg-shu text-washi font-bold tracking-[0.3em] text-lg hover:opacity-90 transition">はじめる</button>
+      <button id="start" class="app-primary-action px-10 py-3 rounded bg-shu text-washi font-bold tracking-[0.3em] text-lg transition">はじめる</button>
     </section>
 
-    <section id="compose" class="hidden space-y-6">
+    <section id="compose" class="hidden space-y-6" tabindex="-1">
+      <nav class="breadcrumb" aria-label="現在地">作品集 <span>›</span> コピペ俳句 <span>›</span> 通常</nav>
+      <button id="back-from-copy-game" class="back-button" type="button">← 難易度選択へ</button>
       <p class="text-center text-sm text-sumi-soft">札を　五・七・五　の枠へ運んで一句どうぞ</p>
-      <div id="slots" class="flex gap-3 justify-center items-start">
-        <div class="slot slot-frame min-h-40 w-16" data-slot="0" data-mora="5">五</div>
-        <div class="slot slot-frame min-h-52 w-16" data-slot="1" data-mora="7">七</div>
-        <div class="slot slot-frame min-h-40 w-16" data-slot="2" data-mora="5">五</div>
+      <p id="copy-placement-message" class="copy-placement-message" aria-live="polite">札はドラッグ、または選択して枠へ配置できます。</p>
+      <div id="slots" class="copy-slot-dock flex gap-3 justify-center items-start">
+        <div class="slot slot-frame min-h-40 w-16" data-slot="0" data-mora="5" role="button" tabindex="0" aria-label="上五の枠、5音">五</div>
+        <div class="slot slot-frame min-h-52 w-16" data-slot="1" data-mora="7" role="button" tabindex="0" aria-label="中七の枠、7音">七</div>
+        <div class="slot slot-frame min-h-40 w-16" data-slot="2" data-mora="5" role="button" tabindex="0" aria-label="下五の枠、5音">五</div>
       </div>
       <div class="flex justify-center">
-        <button id="submit" class="px-8 py-2 rounded bg-shu text-washi font-bold tracking-[0.3em] hover:opacity-90 disabled:opacity-30 transition" disabled>提出</button>
+        <button id="submit" class="app-primary-action px-8 py-2 rounded bg-shu text-washi font-bold tracking-[0.3em] transition" disabled>提出</button>
       </div>
       <div id="hand" class="flex flex-wrap gap-2 justify-center"></div>
     </section>
 
     <section id="timeup" class="hidden timeup-panel text-center space-y-6">
+      <button id="back-from-copy-timeup" class="back-button" type="button">← 難易度選択へ</button>
       <p class="timeup-title">終了</p>
       <p class="text-sumi-soft">鹿威しが時を告げました。</p>
-      <button id="show-results" class="px-10 py-3 rounded bg-shu text-washi font-bold tracking-[0.2em] text-lg hover:opacity-90 transition">
+      <button id="show-results" class="app-primary-action px-10 py-3 rounded bg-shu text-washi font-bold tracking-[0.2em] text-lg transition">
         結果発表へ
       </button>
     </section>
@@ -257,6 +286,7 @@
     <section id="results" class="hidden space-y-3"></section>
 
     <section id="meiku-intro" class="hidden space-y-7 text-center">
+      <nav class="breadcrumb" aria-label="現在地">作品集 <span>›</span> 名句斬り</nav>
       <button id="back-from-meiku" class="back-button" type="button">← ゲーム選択へ</button>
       <div class="space-y-2">
         <p class="text-xl font-bold tracking-[0.18em]">迫る名句を完成させ、斬れ。</p>
@@ -283,16 +313,18 @@
           </label>
         </div>
       </fieldset>
-      <button id="start-meiku" class="px-10 py-3 rounded bg-shu text-washi font-bold tracking-[0.3em] text-lg hover:opacity-90 transition" type="button">
+      <button id="start-meiku" class="app-primary-action px-10 py-3 rounded bg-shu text-washi font-bold tracking-[0.3em] text-lg transition" type="button">
         いざ、抜刀
       </button>
     </section>
 
-    <section id="meiku-game" class="hidden meiku-game">
+    <section id="meiku-game" class="hidden meiku-game" tabindex="-1">
+      <nav class="breadcrumb" aria-label="現在地">作品集 <span>›</span> 名句斬り</nav>
       <div class="meiku-status" aria-label="名句斬りの進行状況">
         <span>得点 <b id="meiku-score">0</b></span>
         <span>連斬 <b id="meiku-streak">0</b></span>
         <span>問題 <b id="meiku-progress">1 / 10</b></span>
+        <span>残り <b id="meiku-remaining">—</b>秒</span>
       </div>
       <div class="meiku-stage">
         <div class="meiku-depth-line meiku-depth-line-one"></div>
@@ -318,9 +350,49 @@
           <p><span id="meiku-result-correct">0 / 10</span><small>正解</small></p>
       </div>
       <div class="flex justify-center gap-3">
-        <button id="meiku-retry" class="px-8 py-3 rounded bg-shu text-washi font-bold" type="button">もう一戦</button>
-        <button id="meiku-exit" class="px-8 py-3 rounded border border-sumi/30 bg-washi-dark font-bold" type="button">ゲーム選択へ</button>
+        <button id="meiku-retry" class="app-primary-action px-8 py-3 rounded bg-shu text-washi font-bold" type="button">もう一戦</button>
+        <button id="meiku-exit" class="app-secondary-action px-8 py-3 rounded border border-sumi/30 bg-washi-dark font-bold" type="button">ゲーム選択へ</button>
       </div>
+    </section>
+    <section id="hard-mode-shell" class="hidden hard-mode-shell">
+      <nav class="breadcrumb" aria-label="現在地">作品集 <span>›</span> コピペ俳句 <span>›</span> 盗作率鑑定所</nav>
+      <button id="back-from-hard" class="back-button" type="button">← 難易度選択へ</button>
+      <section id="hard-intro" class="hard-paper hard-intro-panel">
+            <p class="hard-provocation">俳句は、名句を解体して十七音へ再接続するだけである。</p>
+            <h2>その偏見を、三句で証明してください。</h2>
+            <ol class="hard-rules">
+              <li>4つの名句から切り出した、12枚のキーワード札を配ります。</li>
+              <li>札と自由語をつなぎ、上五・中七・下五を作ります。</li>
+              <li>批評家botが盗作率を鑑定。点数は「100−盗作率」です。</li>
+            </ol>
+            <p class="hard-fine-print">照合対象は、パブリックドメインの代表名句12句です。</p>
+            <button id="hard-start-button" class="hard-primary-action" type="button">名句を解体する</button>
+          </section>
+
+          <section id="hard-composer-screen" class="hidden" aria-labelledby="hard-round-title">
+            <div class="hard-sticky-progress">
+              <div>
+                <p class="hard-eyebrow">盗作率鑑定中</p>
+                <h2 id="hard-round-title">第一句</h2>
+              </div>
+              <div id="hard-round-progress" class="hard-progress-dots" aria-label="全3句の進行"></div>
+            </div>
+            <p class="hard-instruction">名句を解体しました。借り物を最低一枚ずつ使い、別の句へ再接続してください。</p>
+            <div id="hard-line-editors" class="hard-line-editors"></div>
+
+            <section class="hard-preview-panel" aria-labelledby="hard-preview-title">
+              <p class="hard-eyebrow">完成予告</p>
+              <h2 id="hard-preview-title">現在の一句</h2>
+              <div id="hard-poem-preview" class="hard-poem-preview" aria-live="polite"></div>
+            </section>
+            <div class="hard-submit-dock">
+              <p id="hard-validation-message" class="hard-validation-message" aria-live="polite"></p>
+              <button id="hard-submit-button" class="hard-primary-action" type="button" disabled>批評家botへ提出</button>
+            </div>
+          </section>
+
+          <section id="hard-round-result" class="hard-paper hidden" aria-live="polite"></section>
+          <section id="hard-final-result" class="hard-paper hidden" aria-live="polite"></section>
     </section>
   </main>
   <script defer src="./dist/app.js"></script>

@@ -4,6 +4,7 @@ import { makeDraggable } from './dragdrop.js';
 import { renderResults } from './results.js';
 import { setupIntro } from './intro.js';
 import { setupMeiku } from './meiku.js';
+import { showHardIntro, isHardPlaying, abandonHardGame, hardBestScore } from './hard-mode.js';
 
 const els = {
   app: document.getElementById('app'),
@@ -17,6 +18,7 @@ const els = {
   hand: document.getElementById('hand'),
   slots: [...document.querySelectorAll('.slot')],
   submit: document.getElementById('submit'),
+  placementMessage: document.getElementById('copy-placement-message'),
   intro: document.getElementById('intro'),
   start: document.getElementById('start'),
   compose: document.getElementById('compose'),
@@ -25,8 +27,17 @@ const els = {
   results: document.getElementById('results'),
   modeSelect: document.getElementById('mode-select'),
   chooseCopy: document.getElementById('choose-copy'),
+  copyModeSelect: document.getElementById('copy-mode-select'),
+  chooseCopyNormal: document.getElementById('choose-copy-normal'),
+  chooseCopyHard: document.getElementById('choose-copy-hard'),
+  backFromCopySelect: document.getElementById('back-from-copy-select'),
+  hardBestSummary: document.getElementById('hard-best-summary'),
+  hardShell: document.getElementById('hard-mode-shell'),
+  backFromHard: document.getElementById('back-from-hard'),
   chooseMeiku: document.getElementById('choose-meiku'),
   backFromCopy: document.getElementById('back-from-copy'),
+  backFromCopyGame: document.getElementById('back-from-copy-game'),
+  backFromCopyTimeup: document.getElementById('back-from-copy-timeup'),
   meikuIntro: document.getElementById('meiku-intro'),
   meikuGame: document.getElementById('meiku-game'),
   meikuResult: document.getElementById('meiku-result'),
@@ -39,6 +50,10 @@ const SHISHI_START_ANGLE = 42;
 const SHISHI_DUMP_ANGLE = 0;
 let finishedSubmissions = [];
 let audioContext = null;
+let normalPlaying = false;
+let selectedCard = null;
+let activeCardElements = new Map();
+let placeNormalCard = null;
 
 // 水は常に垂直。竹の角度から「固定水線と斜め切断面が交わる高さ」だけを変える。
 function updateShishiWaterPath(angle) {
@@ -98,7 +113,31 @@ function cardEl(card) {
   const b = document.createElement('button');
   b.className = 'fuda';
   b.textContent = card.text;
+  b.type = 'button';
+  b.dataset.cardId = card.id;
+  b.dataset.mora = String(card.mora);
+  b.setAttribute('aria-pressed', 'false');
   return b;
+}
+
+function updateNormalPlacementState() {
+  const placedIds = new Set(game?.getState().slots.filter(Boolean).map((card) => card.id) ?? []);
+  activeCardElements.forEach((element, cardId) => {
+    const isPlaced = placedIds.has(cardId);
+    const isSelected = selectedCard?.id === cardId && !isPlaced;
+    element.disabled = isPlaced;
+    element.classList.toggle('is-selected', isSelected);
+    element.classList.toggle('is-used', isPlaced);
+    element.setAttribute('aria-pressed', String(isSelected));
+  });
+  els.slots.forEach((slot) => {
+    const compatible = Boolean(selectedCard) && Number(slot.dataset.mora) === selectedCard.mora;
+    const lineName = ['上五', '中七', '下五'][Number(slot.dataset.slot)];
+    const placedText = slot.dataset.cardId ? `、配置済み：${slot.textContent}` : '';
+    slot.classList.toggle('is-compatible', compatible);
+    slot.setAttribute('aria-disabled', String(Boolean(selectedCard) && !compatible));
+    slot.setAttribute('aria-label', `${lineName}の枠、${slot.dataset.mora}音${placedText}${compatible ? '、選択中の札を配置可能' : ''}`);
+  });
 }
 
 function createCopyGame(selectedDeck) {
@@ -115,22 +154,57 @@ function createCopyGame(selectedDeck) {
       updateShishiWaterPath(angle);
     },
     onHand: (hand) => {
-      els.slots.forEach((s) => { s.textContent = s.dataset.mora === '5' ? '五' : '七'; });
+      selectedCard = null;
+      activeCardElements = new Map();
+      els.placementMessage.textContent = '札はドラッグ、または選択して枠へ配置できます。';
+      els.slots.forEach((slot) => {
+        slot.textContent = slot.dataset.mora === '5' ? '五' : '七';
+        delete slot.dataset.cardId;
+      });
       els.submit.disabled = true;
       els.hand.innerHTML = '';
+      placeNormalCard = (card, slot) => {
+        if (!card || !slot) return;
+        const result = game.placeCard(Number(slot.dataset.slot), card);
+        if (!result.accepted) {
+          els.placementMessage.textContent = result.reason === 'card_already_used'
+            ? 'その札はすでに別の枠で使用しています。'
+            : 'この枠には音数の異なる札を配置できません。';
+          return;
+        }
+        slot.textContent = card.text;
+        slot.dataset.cardId = card.id;
+        selectedCard = null;
+        els.submit.disabled = !result.complete;
+        els.placementMessage.textContent = result.complete
+          ? '一句が完成しました。提出できます。'
+          : `${card.text}を配置しました。`;
+        updateNormalPlacementState();
+      };
       for (const card of [...hand.fives, ...hand.sevens]) {
         const el = cardEl(card);
+        activeCardElements.set(card.id, el);
+        el.addEventListener('click', () => {
+          if (el.dataset.dragged === 'true') {
+            delete el.dataset.dragged;
+            return;
+          }
+          if (el.disabled) return;
+          selectedCard = selectedCard?.id === card.id ? null : card;
+          els.placementMessage.textContent = selectedCard
+            ? `${card.text}を選択中です。${card.mora}音の枠を選んでください。`
+            : '札の選択を解除しました。';
+          updateNormalPlacementState();
+        });
         makeDraggable(el, card, (c, slot) => {
-          if (!slot) return;
-          const idx = Number(slot.dataset.slot);
-          slot.textContent = c.text;
-          const full = game.placeCard(idx, c);
-          els.submit.disabled = !full;
+          placeNormalCard(c, slot);
         });
         els.hand.appendChild(el);
       }
+      updateNormalPlacementState();
     },
     onEnd: (submissions) => {
+      normalPlaying = false;
       els.compose.classList.add('hidden');
       finishedSubmissions = submissions;
       els.shishi.classList.remove('is-running', 'is-idle');
@@ -142,6 +216,17 @@ function createCopyGame(selectedDeck) {
 }
 
 els.submit.addEventListener('click', () => game?.submitCurrent());
+els.slots.forEach((slot) => {
+  const placeSelected = () => {
+    if (selectedCard) placeNormalCard?.(selectedCard, slot);
+  };
+  slot.addEventListener('click', placeSelected);
+  slot.addEventListener('keydown', (event) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    placeSelected();
+  });
+});
 els.showResults.addEventListener('click', () => {
   els.timeup.classList.add('hidden');
   els.timerBox.classList.add('hidden');
@@ -153,12 +238,14 @@ els.showResults.addEventListener('click', () => {
   // 結果発表はPC想定で画面を広く使う
   els.app.classList.remove('max-w-3xl');
   els.app.classList.add('max-w-5xl');
+  els.results.innerHTML = '';
   els.results.classList.remove('hidden');
-  renderResults(els.results, { deck, seedJson, submissions: finishedSubmissions });
-}, { once: true });
+  renderResults(els.results, { deck, seedJson, submissions: finishedSubmissions, onExit: showCopyModeSelect });
+});
 
 function hideEntrySections() {
-  for (const section of [els.modeSelect, els.intro, els.meikuIntro, els.meikuGame, els.meikuResult]) {
+  for (const section of [els.modeSelect, els.copyModeSelect, els.intro, els.compose, els.timeup,
+    els.results, els.hardShell, els.meikuIntro, els.meikuGame, els.meikuResult]) {
     section.classList.add('hidden');
   }
 }
@@ -175,11 +262,22 @@ function setIllustrations(mode) {
 function showModeSelect() {
   hideEntrySections();
   els.modeSelect.classList.remove('hidden');
-  els.mainTitle.textContent = '俳句遊戯';
+  els.mainTitle.textContent = '俳句遊戯集';
   els.app.classList.add('max-w-3xl');
   els.app.classList.remove('max-w-5xl');
   setIllustrations('selection');
   els.shishi.classList.add('is-idle');
+}
+
+function showCopyModeSelect() {
+  hideEntrySections();
+  els.copyModeSelect.classList.remove('hidden');
+  els.mainTitle.textContent = 'コピペ俳句';
+  const best = hardBestScore();
+  els.hardBestSummary.textContent = best === null ? '自己ベスト　未記録' : `自己ベスト　${best} / 300点`;
+  els.app.classList.add('max-w-3xl');
+  els.app.classList.remove('max-w-5xl');
+  setIllustrations('selection');
 }
 
 function showCopyIntro() {
@@ -200,9 +298,40 @@ function showMeikuIntro() {
   setIllustrations('meiku');
 }
 
-els.chooseCopy.addEventListener('click', showCopyIntro);
+function showHardMode() {
+  hideEntrySections();
+  els.hardShell.classList.remove('hidden');
+  els.mainTitle.textContent = '盗作率鑑定所';
+  els.app.classList.remove('max-w-3xl');
+  els.app.classList.add('max-w-5xl');
+  setIllustrations('copy');
+  showHardIntro();
+}
+
+function leaveNormalGame() {
+  if (normalPlaying && !window.confirm('作句途中の内容を破棄して戻りますか？')) return;
+  game?.cancel();
+  normalPlaying = false;
+  els.timerBox.classList.add('hidden');
+  els.timerBox.classList.remove('flex');
+  showCopyModeSelect();
+}
+
+function leaveHardGame() {
+  if (isHardPlaying() && !window.confirm('作句途中の内容を破棄して戻りますか？')) return;
+  abandonHardGame();
+  showCopyModeSelect();
+}
+
+els.chooseCopy.addEventListener('click', showCopyModeSelect);
 els.chooseMeiku.addEventListener('click', showMeikuIntro);
-els.backFromCopy.addEventListener('click', showModeSelect);
+els.backFromCopySelect.addEventListener('click', showModeSelect);
+els.chooseCopyNormal.addEventListener('click', showCopyIntro);
+els.chooseCopyHard.addEventListener('click', showHardMode);
+els.backFromCopy.addEventListener('click', leaveNormalGame);
+els.backFromCopyGame.addEventListener('click', leaveNormalGame);
+els.backFromCopyTimeup.addEventListener('click', leaveNormalGame);
+els.backFromHard.addEventListener('click', leaveHardGame);
 els.backFromMeiku.addEventListener('click', showModeSelect);
 
 setupIntro({
@@ -213,11 +342,14 @@ setupIntro({
     const preset = document.querySelector('input[name="copy-deck"]:checked')?.value ?? 'season';
     deck = loadDeck(selectDeck(deckJson, preset));
     game = createCopyGame(deck);
+    normalPlaying = true;
     prepareShishiSound();
     els.timerBox.classList.remove('hidden'); // ゲーム中のみタイマー表示
     els.timerBox.classList.add('flex');
     els.shishi.classList.remove('is-idle', 'is-dumping', 'is-results');
     els.shishi.classList.add('is-running');
+    window.scrollTo({ top: 0, behavior: 'auto' });
+    els.compose.focus({ preventScroll: true });
     game.start();
   },
 });

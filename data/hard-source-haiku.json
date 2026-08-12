@@ -1,0 +1,134 @@
+[
+  {
+    "id": "basho-old-pond", "author": "松尾芭蕉", "display": "古池や　蛙飛びこむ　水の音",
+    "lines": [{"display":"古池や","reading":"ふるいけや"},{"display":"蛙飛びこむ","reading":"かわずとびこむ"},{"display":"水の音","reading":"みずのおと"}],
+    "sourceTitle": "松尾芭蕉『古池の句の弁』（青空文庫）",
+    "sourceUrl": "https://www.aozora.gr.jp/cards/000305/files/57363_59643.html",
+    "keywords": [
+      {"id":"basho-old-pond-old-pond","display":"古池","reading":"ふるいけ","weight":1,"sourceLine":0,"sourceOrder":0,"tags":["place","classic"]},
+      {"id":"basho-old-pond-frog","display":"蛙","reading":"かわず","weight":1,"sourceLine":1,"sourceOrder":1,"tags":["spring","animal"]},
+      {"id":"basho-old-pond-water-sound","display":"水の音","reading":"みずのおと","weight":1,"sourceLine":2,"sourceOrder":2,"tags":["sound","water"]}
+    ]
+  },
+  {
+    "id":"basho-summer-grass","author":"松尾芭蕉","display":"夏草や　兵どもが　夢の跡",
+    "lines":[{"display":"夏草や","reading":"なつくさや"},{"display":"兵どもが","reading":"つわものどもが"},{"display":"夢の跡","reading":"ゆめのあと"}],
+    "sourceTitle":"NDLサーチ『夏草や 兵どもが 夢の跡［拓本］』",
+    "sourceUrl":"https://ndlsearch.ndl.go.jp/books/R100000001-I47111100819303",
+    "keywords":[
+      {"id":"basho-summer-grass-grass","display":"夏草","reading":"なつくさ","weight":1,"sourceLine":0,"sourceOrder":0,"tags":["summer","plant"]},
+      {"id":"basho-summer-grass-warriors","display":"兵ども","reading":"つわものども","weight":1,"sourceLine":1,"sourceOrder":1,"tags":["people","war"]},
+      {"id":"basho-summer-grass-dream","display":"夢の跡","reading":"ゆめのあと","weight":1,"sourceLine":2,"sourceOrder":2,"tags":["dream","ruin"]}
+    ]
+  },
+  {
+    "id":"basho-silence","author":"松尾芭蕉","display":"閑さや　岩にしみ入る　蝉の声",
+    "lines":[{"display":"閑さや","reading":"しずけさや"},{"display":"岩にしみ入る","reading":"いわにしみいる"},{"display":"蝉の声","reading":"せみのこえ"}],
+    "sourceTitle":"レファレンス協同データベース（宮城県図書館）",
+    "sourceUrl":"https://crd.ndl.go.jp/reference/detail?page=ref_view&id=1000310770",
+    "keywords":[
+      {"id":"basho-silence-stillness","display":"閑さ","reading":"しずけさ","weight":1,"sourceLine":0,"sourceOrder":0,"tags":["quiet"]},
+      {"id":"basho-silence-rock","display":"岩","reading":"いわ","weight":1,"sourceLine":1,"sourceOrder":1,"tags":["stone"]},
+      {"id":"basho-silence-cicada","display":"蝉の声","reading":"せみのこえ","weight":1,"sourceLine":2,"sourceOrder":2,"tags":["summer","sound"]}
+    ]
+  },
+  {
+    "id":"buson-rapeseed","author":"与謝蕪村","display":"菜の花や　月は東に　日は西に",
+    "lines":[{"display":"菜の花や","reading":"なのはなや"},{"display":"月は東に","reading":"つきはひがしに"},{"display":"日は西に","reading":"ひはにしに"}],
+    "sourceTitle":"NDLサーチ『中国古典詩における「菜の花」について』",
+    "sourceUrl":"https://ndlsearch.ndl.go.jp/books/R000000004-I9461805",
+    "keywords":[
+      {"id":"buson-rapeseed-flower","display":"菜の花","reading":"なのはな","weight":1,"sourceLine":0,"sourceOrder":0,"tags":["spring","plant"]},
+      {"id":"buson-rapeseed-moon","display":"月","reading":"つき","weight":1,"sourceLine":1,"sourceOrder":1,"tags":["sky"]},
+      {"id":"buson-rapeseed-sun","display":"日","reading":"ひ","weight":1,"sourceLine":2,"sourceOrder":2,"tags":["sky"]}
+    ]
+  },
+  {
+    "id":"buson-spring-sea","author":"与謝蕪村","display":"春の海　ひねもすのたり　のたりかな",
+    "lines":[{"display":"春の海","reading":"はるのうみ"},{"display":"ひねもすのたり","reading":"ひねもすのたり"},{"display":"のたりかな","reading":"のたりかな"}],
+    "sourceTitle":"レファレンス協同データベース（安城市図書情報館）",
+    "sourceUrl":"https://crd.ndl.go.jp/reference/detail?page=ref_view&id=1000162094",
+    "keywords":[
+      {"id":"buson-spring-sea-sea","display":"春の海","reading":"はるのうみ","weight":1,"sourceLine":0,"sourceOrder":0,"tags":["spring","water"]},
+      {"id":"buson-spring-sea-all-day","display":"ひねもす","reading":"ひねもす","weight":1,"sourceLine":1,"sourceOrder":1,"tags":["time"]},
+      {"id":"buson-spring-sea-notari","display":"のたりかな","reading":"のたりかな","weight":1,"sourceLine":2,"sourceOrder":2,"tags":["motion"]}
+    ]
+  },
+  {
+    "id":"buson-moon-zenith","author":"与謝蕪村","display":"月天心　貧しき町を　通りけり",
+    "lines":[{"display":"月天心","reading":"つきてんしん"},{"display":"貧しき町を","reading":"まずしきまちを"},{"display":"通りけり","reading":"とおりけり"}],
+    "sourceTitle":"nippon.com『月天心 貧しき町を通りけり』",
+    "sourceUrl":"https://www.nippon.com/ja/japan-topics/b09645/",
+    "keywords":[
+      {"id":"buson-moon-zenith-moon","display":"月","reading":"つき","weight":1,"sourceLine":0,"sourceOrder":0,"tags":["autumn","sky"]},
+      {"id":"buson-moon-zenith-town","display":"貧しき町","reading":"まずしきまち","weight":1,"sourceLine":1,"sourceOrder":1,"tags":["place","people"]},
+      {"id":"buson-moon-zenith-pass","display":"通りけり","reading":"とおりけり","weight":1,"sourceLine":2,"sourceOrder":2,"tags":["motion"]}
+    ]
+  },
+  {
+    "id":"issa-sparrow","author":"小林一茶","display":"雀の子　そこのけそこのけ　御馬が通る",
+    "lines":[{"display":"雀の子","reading":"すずめのこ"},{"display":"そこのけそこのけ","reading":"そこのけそこのけ"},{"display":"御馬が通る","reading":"おうまがとおる"}],
+    "sourceTitle":"レファレンス協同データベース（山梨県立図書館）",
+    "sourceUrl":"https://crd.ndl.go.jp/reference/detail?page=ref_view&id=1000001317",
+    "keywords":[
+      {"id":"issa-sparrow-child","display":"雀の子","reading":"すずめのこ","weight":1,"sourceLine":0,"sourceOrder":0,"tags":["spring","animal"]},
+      {"id":"issa-sparrow-move","display":"そこのけ","reading":"そこのけ","weight":1,"sourceLine":1,"sourceOrder":1,"tags":["speech"]},
+      {"id":"issa-sparrow-horse","display":"御馬","reading":"おうま","weight":1,"sourceLine":2,"sourceOrder":2,"tags":["animal"]}
+    ]
+  },
+  {
+    "id":"issa-thin-frog","author":"小林一茶","display":"やせ蛙　まけるな一茶　これにあり",
+    "lines":[{"display":"やせ蛙","reading":"やせがえる"},{"display":"まけるな一茶","reading":"まけるないっさ"},{"display":"これにあり","reading":"これにあり"}],
+    "sourceTitle":"政府広報『小林一茶：弱い者に寄り添う俳人』",
+    "sourceUrl":"https://www.gov-online.go.jp/eng/publicity/book/hlj/html/202206/202206_12_jp.html",
+    "keywords":[
+      {"id":"issa-thin-frog-frog","display":"やせ蛙","reading":"やせがえる","weight":1,"sourceLine":0,"sourceOrder":0,"tags":["spring","animal"]},
+      {"id":"issa-thin-frog-dont-lose","display":"負けるな","reading":"まけるな","weight":1,"sourceLine":1,"sourceOrder":1,"tags":["speech"]},
+      {"id":"issa-thin-frog-here","display":"これにあり","reading":"これにあり","weight":1,"sourceLine":2,"sourceOrder":2,"tags":["place"]}
+    ]
+  },
+  {
+    "id":"issa-dew-world","author":"小林一茶","display":"露の世は　露の世ながら　さりながら",
+    "lines":[{"display":"露の世は","reading":"つゆのよは"},{"display":"露の世ながら","reading":"つゆのよながら"},{"display":"さりながら","reading":"さりながら"}],
+    "sourceTitle":"『名言名句の辞典』「露の世は…」（JLogos）",
+    "sourceUrl":"https://www.jlogos.com/d006/5450149.html",
+    "keywords":[
+      {"id":"issa-dew-world-dew","display":"露","reading":"つゆ","weight":1,"sourceLine":0,"sourceOrder":0,"tags":["autumn","water"]},
+      {"id":"issa-dew-world-world","display":"露の世","reading":"つゆのよ","weight":1,"sourceLine":1,"sourceOrder":1,"tags":["life"]},
+      {"id":"issa-dew-world-nevertheless","display":"さりながら","reading":"さりながら","weight":1,"sourceLine":2,"sourceOrder":2,"tags":["speech"]}
+    ]
+  },
+  {
+    "id":"shiki-persimmon","author":"正岡子規","display":"柿食へば　鐘が鳴るなり　法隆寺",
+    "lines":[{"display":"柿食へば","reading":"かきくえば"},{"display":"鐘が鳴るなり","reading":"かねがなるなり"},{"display":"法隆寺","reading":"ほうりゅうじ"}],
+    "sourceTitle":"奈良市『NARA Fragment』",
+    "sourceUrl":"https://www.city.nara.lg.jp/uploaded/attachment/208593.pdf",
+    "keywords":[
+      {"id":"shiki-persimmon-fruit","display":"柿","reading":"かき","weight":1,"sourceLine":0,"sourceOrder":0,"tags":["autumn","food"]},
+      {"id":"shiki-persimmon-bell","display":"鐘","reading":"かね","weight":1,"sourceLine":1,"sourceOrder":1,"tags":["sound"]},
+      {"id":"shiki-persimmon-temple","display":"法隆寺","reading":"ほうりゅうじ","weight":1,"sourceLine":2,"sourceOrder":2,"tags":["place"]}
+    ]
+  },
+  {
+    "id":"shiki-snow-depth","author":"正岡子規","display":"いくたびも　雪の深さを　尋ねけり",
+    "lines":[{"display":"いくたびも","reading":"いくたびも"},{"display":"雪の深さを","reading":"ゆきのふかさを"},{"display":"尋ねけり","reading":"たずねけり"}],
+    "sourceTitle":"文部科学省「編修趣意書」（令和8年度版）",
+    "sourceUrl":"https://www.mext.go.jp/content/20250528-app_dev04-000042815_41.pdf",
+    "keywords":[
+      {"id":"shiki-snow-depth-many-times","display":"いくたびも","reading":"いくたびも","weight":1,"sourceLine":0,"sourceOrder":0,"tags":["time"]},
+      {"id":"shiki-snow-depth-snow","display":"雪の深さ","reading":"ゆきのふかさ","weight":1,"sourceLine":1,"sourceOrder":1,"tags":["winter"]},
+      {"id":"shiki-snow-depth-ask","display":"尋ねけり","reading":"たずねけり","weight":1,"sourceLine":2,"sourceOrder":2,"tags":["motion"]}
+    ]
+  },
+  {
+    "id":"shiki-summer-storm","author":"正岡子規","display":"夏嵐　机上の白紙　飛び尽す",
+    "lines":[{"display":"夏嵐","reading":"なつあらし"},{"display":"机上の白紙","reading":"きじょうのはくし"},{"display":"飛び尽す","reading":"とびつくす"}],
+    "sourceTitle":"糸島市図書館『YA本研究会だより VOL.4』",
+    "sourceUrl":"https://www.city.itoshima.lg.jp/s032/020/040/020/H30_YAdayori4.pdf",
+    "keywords":[
+      {"id":"shiki-summer-storm-storm","display":"夏嵐","reading":"なつあらし","weight":1,"sourceLine":0,"sourceOrder":0,"tags":["summer","weather"]},
+      {"id":"shiki-summer-storm-paper","display":"白紙","reading":"はくし","weight":1,"sourceLine":1,"sourceOrder":1,"tags":["object"]},
+      {"id":"shiki-summer-storm-fly","display":"飛び尽す","reading":"とびつくす","weight":1,"sourceLine":2,"sourceOrder":2,"tags":["motion"]}
+    ]
+  }
+]
