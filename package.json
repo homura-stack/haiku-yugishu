@@ -8,6 +8,7 @@
     "check:offline": "node ./scripts/build-offline.mjs --check",
     "test": "npm run test:unit && npm run check:offline",
     "test:browser": "npm run build && playwright test",
+    "capture:readme": "node ./scripts/capture-readme.mjs",
     "build:css": "tailwindcss -i ./styles/input.css -o ./dist/styles.css --minify",
     "build:js": "node ./scripts/build-offline.mjs",
     "build": "npm run build:css && npm run build:js"
