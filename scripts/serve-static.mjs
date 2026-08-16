@@ -37,6 +37,15 @@ const server = createServer(async (request, response) => {
   }
 });
 
+function shutdown() {
+  server.closeAllConnections?.();
+  server.close(() => process.exit(0));
+  setTimeout(() => process.exit(0), 500).unref();
+}
+
+process.once('SIGINT', shutdown);
+process.once('SIGTERM', shutdown);
+
 server.listen(port, '127.0.0.1', () => {
   console.log(`Static server: http://127.0.0.1:${port}`);
 });

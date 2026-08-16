@@ -173,7 +173,7 @@
 
     <section id="mode-select" class="space-y-8 text-center">
       <div class="space-y-2">
-        <p class="text-sumi-soft">三つの俳句遊びを、一つの作品集に。</p>
+        <p class="text-sumi-soft">二つの入口から、三つの俳句遊びへ。</p>
         <p class="text-sm text-sumi-soft">ゲームを選択してください</p>
       </div>
       <div class="mode-grid">
@@ -227,7 +227,7 @@
         </li>
         <li class="flex gap-3 items-start">
           <span class="shrink-0 w-7 h-7 rounded-full bg-shu text-washi grid place-items-center font-bold">三</span>
-          <span>宗匠・若手・翁の<b>3人のAI俳人</b>が「風流」と「シュール」で採点（<b>300点満点</b>）。</span>
+          <span>宗匠・若手・翁の<b>3人の俳人</b>が「風流」と「シュール」で採点（<b>300点満点</b>）。</span>
         </li>
       </ol>
       <fieldset class="selection-fieldset">
@@ -365,7 +365,7 @@
               <li>札と自由語をつなぎ、上五・中七・下五を作ります。</li>
               <li>批評家botが盗作率を鑑定。点数は「100−盗作率」です。</li>
             </ol>
-            <p class="hard-fine-print">照合対象は、パブリックドメインの代表名句12句です。</p>
+            <p class="hard-fine-print">盗作率は、収録したパブリックドメイン名句12句とのゲーム内一致率であり、実在の盗作判定ではありません。</p>
             <button id="hard-start-button" class="hard-primary-action" type="button">名句を解体する</button>
           </section>
 
@@ -379,6 +379,14 @@
             </div>
             <p class="hard-instruction">名句を解体しました。借り物を最低一枚ずつ使い、別の句へ再接続してください。</p>
             <div id="hard-line-editors" class="hard-line-editors"></div>
+            <section class="hard-shared-controls" aria-labelledby="hard-shared-controls-title">
+              <p class="hard-eyebrow" id="hard-shared-controls-title">共有札箱</p>
+              <p id="hard-active-line-status" class="hard-active-line-status" role="status" aria-live="polite"></p>
+              <div id="hard-line-targets" class="hard-line-targets" role="group" aria-label="追加先の行を選択"></div>
+              <div id="hard-shared-keyword-tray" class="hard-keyword-tray"></div>
+              <div id="hard-shared-free-form"></div>
+            </section>
+            <p class="hard-game-disclaimer">盗作率は、収録したパブリックドメイン名句12句とのゲーム内一致率であり、実在の盗作判定ではありません。</p>
 
             <section class="hard-preview-panel" aria-labelledby="hard-preview-title">
               <p class="hard-eyebrow">完成予告</p>

@@ -40,6 +40,15 @@ test('共通の戻るボタンとキーボードフォーカスに十分な操�
   assert.match(css, /:focus-visible/);
 });
 
+test('盗作率鑑定所は共有札箱とゲーム内一致率の注意書きを備える', () => {
+  assert.match(html, /id="hard-line-targets"/);
+  assert.match(html, /id="hard-shared-keyword-tray"/);
+  assert.match(html, /id="hard-shared-free-form"/);
+  assert.match(html, /ゲーム内一致率であり、実在の盗作判定ではありません/);
+  assert.match(css, /\.hard-mode-shell \.hard-line-target\.is-active/);
+  assert.match(css, /\.hard-mode-shell \.hard-line-editor\.is-active/);
+});
+
 test('名句斬りは残り秒数を表示し、動き抑制時に接近を停止する', () => {
   assert.match(html, /id="meiku-remaining"/);
   const reducedMotion = css.match(/@media \(prefers-reduced-motion: reduce\)\s*\{([\s\S]+?)\n\}/)?.[1] ?? '';

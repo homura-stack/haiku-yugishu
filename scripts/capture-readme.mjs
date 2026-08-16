@@ -35,8 +35,8 @@ async function openPage(browser) {
   return { page, errors };
 }
 
-async function save(page, name) {
-  await page.evaluate(() => scrollTo(0, 0));
+async function save(page, name, { atTop = true } = {}) {
+  if (atTop) await page.evaluate(() => scrollTo(0, 0));
   await page.screenshot({
     path: path.join(outputDir, name),
     type: 'jpeg',
@@ -83,19 +83,20 @@ async function captureHard(browser) {
   await page.click('#hard-start-button');
   const targets = [5, 7, 5];
   for (let line = 0; line < targets.length; line += 1) {
-    const editor = page.locator('.hard-line-editor').nth(line);
-    await editor.locator('.hard-keyword-card:not(:disabled)').first().click();
+    await page.locator('[data-hard-line-target]').nth(line).click();
+    await page.locator('#hard-shared-keyword-tray .hard-keyword-card:not(:disabled)').first().click();
     const countText = await page.locator('.hard-line-editor').nth(line).locator('.hard-mora-count').textContent();
     const count = Number.parseInt(countText, 10);
     const missing = targets[line] - count;
     if (missing > 0 && fillers[missing]) {
-      const currentEditor = page.locator('.hard-line-editor').nth(line);
-      await currentEditor.getByLabel(/追加する自由語$/).fill(fillers[missing][0]);
-      await currentEditor.getByLabel(/自由語の読み$/).fill(fillers[missing][1]);
-      await currentEditor.locator('.hard-secondary-action').click();
+      const freeInputs = page.locator('#hard-shared-free-form input');
+      await freeInputs.nth(0).fill(fillers[missing][0]);
+      await freeInputs.nth(1).fill(fillers[missing][1]);
+      await page.locator('#hard-shared-free-form .hard-secondary-action').click();
     }
   }
-  await save(page, 'hard-mode.jpg');
+  await page.locator('#hard-shared-controls-title').scrollIntoViewIfNeeded();
+  await save(page, 'hard-mode.jpg', { atTop: false });
   await page.close();
   return errors;
 }

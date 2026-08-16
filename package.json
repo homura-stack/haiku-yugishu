@@ -7,11 +7,12 @@
     "test:unit": "node --test",
     "check:offline": "node ./scripts/build-offline.mjs --check",
     "test": "npm run test:unit && npm run check:offline",
-    "test:browser": "npm run build && playwright test",
+    "test:browser": "npm run build && node ./scripts/check-browser-flow.mjs && node ./scripts/check-file-mode.mjs",
     "capture:readme": "node ./scripts/capture-readme.mjs",
     "build:css": "tailwindcss -i ./styles/input.css -o ./dist/styles.css --minify",
     "build:js": "node ./scripts/build-offline.mjs",
-    "build": "npm run build:css && npm run build:js"
+    "build": "npm run build:css && npm run build:js",
+    "build:pages": "npm run build && node ./scripts/prepare-pages.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.62.1",

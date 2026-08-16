@@ -1126,24 +1126,24 @@ function generateCritique(result, source = null, compositionMeta = {}) {
   if (result.rate >= 80) {
     return {
       level: 'angry',
-      title: '名句の影が濃すぎます。',
-      comment: `盗作率${result.rate}%です。語を借りたというより、元句の骨格まで持ち出しています。`,
+      title: 'ゲーム内一致率が高すぎます。',
+      comment: `ゲーム内一致率${result.rate}%です。元句との近さを測る遊びとしては、骨格まで重なっています。`,
     };
   }
   if (result.rate >= 30) {
     return {
       level: 'influenced',
-      title: '独立作品とはまだ呼べません。',
-      comment: `盗作率${result.rate}%です。借り物同士の関係を、もう一段壊してください。`,
+      title: 'ゲーム内では元句に近い判定です。',
+      comment: `ゲーム内一致率${result.rate}%です。借り物同士の関係を、もう一段壊してください。`,
     };
   }
   const irregular = compositionMeta.irregularLines ?? 0;
   return {
     level: 'original',
-    title: '独立作品と認定します。',
+    title: 'ゲーム内では元句から離れた判定です。',
     comment: irregular > 0
-      ? `盗作率${result.rate}%です。定型を外した${irregular}行が、借り物にあなたの呼吸を与えました。`
-      : `盗作率${result.rate}%です。借り物だけで、元句とは別の景色を作りました。`,
+      ? `ゲーム内一致率${result.rate}%です。定型を外した${irregular}行が、借り物にあなたの呼吸を与えました。`
+      : `ゲーム内一致率${result.rate}%です。借り物だけで、元句とは別の景色を作りました。`,
   };
 }
 
@@ -1263,6 +1263,10 @@ const els = {
   roundTitle: document.getElementById('hard-round-title'),
   progress: document.getElementById('hard-round-progress'),
   editors: document.getElementById('hard-line-editors'),
+  activeLineStatus: document.getElementById('hard-active-line-status'),
+  lineTargets: document.getElementById('hard-line-targets'),
+  keywordTray: document.getElementById('hard-shared-keyword-tray'),
+  freeForm: document.getElementById('hard-shared-free-form'),
   preview: document.getElementById('hard-poem-preview'),
   validation: document.getElementById('hard-validation-message'),
   submit: document.getElementById('hard-submit-button'),
@@ -1278,6 +1282,7 @@ let composer = null;
 let sessionResults = [];
 let formMessage = '';
 let playing = false;
+let activeLine = 0;
 const bestStore = createHardBestStore();
 
 function showOnly(target) {
@@ -1359,10 +1364,9 @@ function renderSegments(lineIndex, segments) {
   return list;
 }
 
-function renderKeywordTray(lineIndex, used) {
+function renderKeywordTray(used) {
   const tray = document.createElement('div');
-  tray.className = 'hard-keyword-tray';
-  tray.setAttribute('aria-label', `${LINE_NAMES[lineIndex]}へ追加できるキーワード札`);
+  tray.setAttribute('aria-label', `選択中の${LINE_NAMES[activeLine]}へ追加できるキーワード札`);
   currentRound().keywordIds.forEach((keywordId) => {
     const keyword = keywordMap.get(keywordId);
     const button = document.createElement('button');
@@ -1376,7 +1380,7 @@ function renderKeywordTray(lineIndex, used) {
     mora.textContent = isUsed ? `・${countMora(keyword.reading)}音・使用済` : `・${countMora(keyword.reading)}音`;
     button.append(label, mora);
     button.addEventListener('click', () => {
-      composer.addKeyword(lineIndex, keywordId);
+      composer.addKeyword(activeLine, keywordId);
       formMessage = '';
       renderComposer();
     });
@@ -1385,7 +1389,7 @@ function renderKeywordTray(lineIndex, used) {
   return tray;
 }
 
-function renderFreeForm(lineIndex) {
+function renderFreeForm() {
   const form = document.createElement('form');
   form.className = 'hard-free-form';
   const displayField = document.createElement('label');
@@ -1394,7 +1398,7 @@ function renderFreeForm(lineIndex) {
   displayLabel.textContent = '自由語（表示）';
   const display = document.createElement('input');
   display.placeholder = '例：飛び込む';
-  display.setAttribute('aria-label', `${LINE_NAMES[lineIndex]}へ追加する自由語`);
+  display.setAttribute('aria-label', `選択中の${LINE_NAMES[activeLine]}へ追加する自由語`);
   displayField.append(displayLabel, display);
   const readingField = document.createElement('label');
   readingField.className = 'hard-field';
@@ -1402,7 +1406,7 @@ function renderFreeForm(lineIndex) {
   readingLabel.textContent = '読み（ひらがな）';
   const reading = document.createElement('input');
   reading.placeholder = '例：とびこむ';
-  reading.setAttribute('aria-label', `${LINE_NAMES[lineIndex]}へ追加する自由語の読み`);
+  reading.setAttribute('aria-label', `選択中の${LINE_NAMES[activeLine]}へ追加する自由語の読み`);
   readingField.append(readingLabel, reading);
   const add = document.createElement('button');
   add.type = 'submit';
@@ -1423,11 +1427,32 @@ function renderFreeForm(lineIndex) {
       reading.setAttribute('aria-invalid', String(!validateReading(reading.value).valid));
       return;
     }
-    composer.addFreeText(lineIndex, display.value.trim(), reading.value.trim());
+    composer.addFreeText(activeLine, display.value.trim(), reading.value.trim());
     formMessage = '';
     renderComposer();
   });
   return form;
+}
+
+function renderLineTargets() {
+  els.lineTargets.innerHTML = '';
+  els.activeLineStatus.textContent = `追加先：${LINE_NAMES[activeLine]}（選択中）`;
+  LINE_NAMES.forEach((lineName, lineIndex) => {
+    const target = makeButton(
+      lineName,
+      `${lineName}を追加先として選択${lineIndex === activeLine ? '中' : ''}`,
+      () => {
+        activeLine = lineIndex;
+        formMessage = '';
+        renderComposer();
+      },
+      `hard-line-target${lineIndex === activeLine ? ' is-active' : ''}`,
+    );
+    target.dataset.hardLineTarget = String(lineIndex);
+    target.setAttribute('aria-pressed', String(lineIndex === activeLine));
+    target.setAttribute('aria-controls', `hard-line-editor-${lineIndex}`);
+    els.lineTargets.appendChild(target);
+  });
 }
 
 function renderComposer() {
@@ -1441,7 +1466,9 @@ function renderComposer() {
   composition.lines.forEach((segments, lineIndex) => {
     const lineResult = validation.lines[lineIndex];
     const section = document.createElement('section');
-    section.className = 'hard-line-editor';
+    section.id = `hard-line-editor-${lineIndex}`;
+    section.className = `hard-line-editor${lineIndex === activeLine ? ' is-active' : ''}`;
+    section.setAttribute('aria-label', `${LINE_NAMES[lineIndex]}${lineIndex === activeLine ? '、追加先として選択中' : ''}`);
     const heading = document.createElement('div');
     heading.className = 'hard-line-heading';
     const title = document.createElement('h3');
@@ -1453,11 +1480,13 @@ function renderComposer() {
     section.append(
       heading,
       renderSegments(lineIndex, segments),
-      renderKeywordTray(lineIndex, used),
-      renderFreeForm(lineIndex),
     );
     els.editors.appendChild(section);
   });
+
+  renderLineTargets();
+  els.keywordTray.replaceChildren(renderKeywordTray(used));
+  els.freeForm.replaceChildren(renderFreeForm());
 
   els.preview.innerHTML = '';
   composition.lines.forEach((segments) => {
@@ -1488,6 +1517,7 @@ function renderRoundResult(entry) {
   const { result, critique, source, poem, validation } = entry;
   els.roundResult.innerHTML = '';
   appendText(els.roundResult, 'p', `第${roundIndex + 1}句　鑑定結果`, 'hard-eyebrow');
+  appendText(els.roundResult, 'p', '盗作率は、収録したパブリックドメイン名句12句とのゲーム内一致率であり、実在の盗作判定ではありません。', 'hard-game-disclaimer');
   appendText(els.roundResult, 'h2', poem.join('　'));
   const ring = document.createElement('div');
   ring.className = 'hard-score-ring';
@@ -1534,6 +1564,7 @@ function renderRoundResult(entry) {
         roundIndex += 1;
         composer = createComposer();
         formMessage = '';
+        activeLine = 0;
         showOnly(els.composerScreen);
         renderComposer();
       } else {
@@ -1565,6 +1596,7 @@ function renderFinalResult() {
   const total = sessionResults.reduce((sum, entry) => sum + entry.result.originalityPoints, 0);
   const bestResult = bestStore.record(total);
   appendText(els.finalResult, 'p', '三句総評', 'hard-eyebrow');
+  appendText(els.finalResult, 'p', '盗作率は、収録したパブリックドメイン名句12句とのゲーム内一致率であり、実在の盗作判定ではありません。', 'hard-game-disclaimer');
   appendText(els.finalResult, 'h2', `オリジナリティ合計　${total} / 300点`);
   appendText(els.finalResult, 'p', `自己ベスト　${bestResult.best} / 300点${bestResult.isNewBest ? '　新記録' : ''}`, 'hard-provocation');
   const list = document.createElement('ol');
@@ -1594,6 +1626,7 @@ function startGame() {
   composer = createComposer();
   sessionResults = [];
   formMessage = '';
+  activeLine = 0;
   playing = true;
   showOnly(els.composerScreen);
   renderComposer();

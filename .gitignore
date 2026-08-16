@@ -1,8 +1,10 @@
 node_modules/
 playwright-report/
 test-results/
+pages-artifact/
 
 # dist/styles.css は配信必須物（審査員が index.html を開くだけで動く）ため追跡する。
 # 親 .gitignore の dist 無視を打ち消す。
 !dist/
 !dist/styles.css
+!dist/app.js

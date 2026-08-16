@@ -1176,6 +1176,7 @@ a:focus-visible {
 .hard-mode-shell .hard-instruction { margin: 1.2rem .3rem; color: var(--soft-ink); line-height: 1.7; }
 .hard-mode-shell .hard-line-editors { display: grid; gap: 1.25rem; }
 .hard-mode-shell .hard-line-editor { padding: 1.1rem; background: var(--paper-light); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 7px 22px rgba(52,41,30,.08); }
+.hard-mode-shell .hard-line-editor.is-active { border-color: var(--red); box-shadow: 0 0 0 3px rgba(153,46,46,.15), 0 7px 22px rgba(52,41,30,.08); }
 .hard-mode-shell .hard-line-heading { display: flex; justify-content: space-between; align-items: baseline; gap: .75rem; }
 .hard-mode-shell .hard-line-heading h3 { margin: 0; font-size: 1.35rem; }
 .hard-mode-shell .hard-mora-count { color: var(--red); font-family: system-ui, sans-serif; font-weight: 800; }
@@ -1190,6 +1191,15 @@ a:focus-visible {
 .hard-mode-shell .hard-keyword-card:focus-visible { outline: 3px solid #1269a8; outline-offset: 2px; }
 .hard-mode-shell .hard-keyword-card small { color: var(--soft-ink); }
 .hard-mode-shell .hard-keyword-card:disabled { color: #514b45; background: #d9d2c7; border-color: #8f877c; cursor: not-allowed; text-decoration: line-through; }
+.hard-mode-shell .hard-shared-controls { margin-top: 1.25rem; padding: 1.1rem; background: #f0e4d1; border: 2px solid #927d5f; border-radius: 16px; box-shadow: 0 7px 22px rgba(52,41,30,.08); }
+.hard-mode-shell .hard-shared-controls .hard-eyebrow { margin-bottom: .35rem; }
+.hard-mode-shell .hard-active-line-status { min-height: 1.5em; margin: 0 0 .65rem; color: var(--red-dark); font-weight: 800; }
+.hard-mode-shell .hard-line-targets { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; margin-bottom: .9rem; }
+.hard-mode-shell .hard-line-target { min-height: 44px; border: 2px solid #877d70; border-radius: 9px; color: var(--ink); background: #fffaf0; font-weight: 800; cursor: pointer; }
+.hard-mode-shell .hard-line-target:hover { border-color: var(--red); background: #fff5e6; }
+.hard-mode-shell .hard-line-target.is-active { color: #fff; background: var(--red); border-color: var(--red); box-shadow: inset 0 0 0 2px rgba(255,255,255,.35); }
+.hard-mode-shell .hard-line-target:focus-visible { outline: 3px solid #1269a8; outline-offset: 2px; }
+.hard-mode-shell .hard-game-disclaimer { margin: 1rem .3rem 0; color: var(--soft-ink); font-size: .85rem; line-height: 1.6; }
 .hard-mode-shell .hard-free-form { display: grid; grid-template-columns: 1fr 1fr auto; gap: .6rem; margin-top: 1rem; align-items: end; }
 .hard-mode-shell .hard-field { display: grid; gap: .35rem; color: var(--ink); font-size: .85rem; font-weight: 700; text-align: left; }
 .hard-mode-shell .hard-field input { width: 100%; min-height: 44px; min-width: 0; padding: .65rem .75rem; border: 2px solid #8e8375; border-radius: 8px; color: var(--ink); background: #fff; }

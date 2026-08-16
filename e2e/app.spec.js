@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import { pathToFileURL } from 'node:url';
 
 function captureErrors(page) {
   const errors = [];
@@ -147,24 +146,44 @@ test('390pxで横スクロールせず札をタップ配置できる', async ({ 
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
 });
 
-test('file版で3モード導線が動き外部通信とコンソールエラーがない', async ({ page }) => {
+test('390pxの共有札箱で三句を提出し、ゲーム内総評まで到達できる', async ({ page }) => {
   const errors = captureErrors(page);
-  const networkRequests = [];
-  page.on('request', (request) => {
-    if (/^https?:/.test(request.url())) networkRequests.push(request.url());
-  });
-  const fileUrl = pathToFileURL(`${process.cwd()}/index.html`).href;
-  await page.goto(fileUrl, { waitUntil: 'load' });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/', { waitUntil: 'networkidle' });
   await page.click('#choose-copy');
   await page.click('#choose-copy-hard');
-  await expect(page.locator('#hard-mode-shell')).toBeVisible();
-  await page.click('#back-from-hard');
-  await page.click('#choose-copy-normal');
-  await expect(page.locator('#intro')).toBeVisible();
-  await page.click('#back-from-copy');
-  await page.click('#back-from-copy-select');
-  await page.click('#choose-meiku');
-  await expect(page.locator('#meiku-intro')).toBeVisible();
-  expect(networkRequests).toEqual([]);
+  await page.click('#hard-start-button');
+
+  const targets = page.locator('[data-hard-line-target]');
+  await expect(targets).toHaveCount(3);
+  await expect(page.locator('#hard-shared-keyword-tray .hard-keyword-card')).toHaveCount(12);
+
+  const targetMoras = [5, 7, 5];
+  for (let round = 0; round < 3; round += 1) {
+    for (let line = 0; line < 3; line += 1) {
+      await targets.nth(line).click();
+      await expect(targets.nth(line)).toHaveAttribute('aria-pressed', 'true');
+      const keyword = page.locator('#hard-shared-keyword-tray .hard-keyword-card:not(:disabled)').first();
+      const keywordLabel = await keyword.textContent();
+      const keywordMora = Number(keywordLabel.match(/・(\d+)音/)?.[1]);
+      await keyword.click();
+      const freeMora = targetMoras[line] - keywordMora;
+      if (freeMora > 0) {
+        const freeInputs = page.locator('#hard-shared-free-form input');
+        await freeInputs.nth(0).fill('あ'.repeat(freeMora));
+        await freeInputs.nth(1).fill('あ'.repeat(freeMora));
+        await page.locator('#hard-shared-free-form .hard-secondary-action').click();
+      }
+    }
+    await expect(page.locator('#hard-submit-button')).toBeEnabled();
+    await page.click('#hard-submit-button');
+    await expect(page.locator('#hard-round-result')).toBeVisible();
+    await page.getByRole('button', { name: round < 2 ? '次の句へ進む' : '最終結果を見る' }).click();
+    if (round < 2) await expect(page.locator('#hard-composer-screen')).toBeVisible();
+  }
+
+  await expect(page.locator('#hard-final-result')).toBeVisible();
+  await expect(page.locator('#hard-final-result')).toContainText('ゲーム内一致率');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
   expect(errors).toEqual([]);
 });
